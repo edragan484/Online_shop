@@ -1,9 +1,13 @@
+import random
+
 from .base_page import BasePage
 
 from .locators import LoginPageLocators
 
 
 class LoginPage(BasePage):
+    unique_var = random.randint(1, 1000000)
+
     def should_be_login_page(self):
         login_page = self.browser.find_element(*LoginPageLocators.should_be_login_page)
         assert login_page is not None, "Login page is"
@@ -22,16 +26,22 @@ class LoginPage(BasePage):
         assert register_form is not None, "Register form is on page"
 
     def fill_email_registration_field(self):
+        unique_var = random.randint(1, 1000000)
         email_address_field = self.browser.find_element(*LoginPageLocators.email_registration_field)
-        email_address_field.send_keys()
+        email_address_field.clear()
+        email_address_field.send_keys("{}@gmail.com".format(unique_var))
 
     def fill_password_registration_field(self):
+        unique_var = random.randint(1, 1000000)
         password1 = self.browser.find_element(*LoginPageLocators.password_registration_field)
-        password1.send_keys()
+        password1.clear()
+        password1.send_keys(unique_var, unique_var)
 
     def fill_password_confirmation_field(self):
+        unique_var = random.randint(1, 1000000)
         password2 = self.browser.find_element(*LoginPageLocators.password_confirmation_field)
-        password2.send_keys()
+        password2.clear()
+        password2.send_keys(unique_var, unique_var)
 
     def submit_new_user(self):
         button_submit_registration = self.browser.find_element(*LoginPageLocators.button_submit_registration)
