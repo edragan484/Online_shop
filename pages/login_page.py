@@ -47,3 +47,22 @@ class LoginPage(BasePage):
         button_submit_registration = self.browser.find_element(*LoginPageLocators.button_submit_registration)
         button_submit_registration.click()
 
+    def fill_user_email_field(self):
+        email_address_field = self.browser.find_element(*LoginPageLocators.email_login)
+        email_address_field.clear()
+        email_address_field.send_keys("user2020@gmail.com")
+
+    def fill_user_password_field(self):
+        password1 = self.browser.find_element(*LoginPageLocators.password_login)
+        password1.clear()
+        password1.send_keys("QRTYvvbbnmYU")
+
+    def submit_enter_user(self):
+        button_submit_registration = self.browser.find_element(*LoginPageLocators.button_login)
+        button_submit_registration.click()
+
+    def recover_password(self):
+        recover_pass_link = self.browser.find_element(*LoginPageLocators.recover_password_link)
+        recover_pass_link.click()
+        
+
