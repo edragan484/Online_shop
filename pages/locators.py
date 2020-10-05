@@ -44,3 +44,9 @@ class ProductPageLocators():
     product_name_on_product_page = (By.TAG_NAME, "h1")
     alert_of_add_product = (By.CSS_SELECTOR, "div.alert.alert-safe.alert-noicon:nth-child(1)")
     name_in_alert_add_product = (By.CSS_SELECTOR, "div.alert.alert-safe.alert-noicon:nth-child(1) strong")
+
+
+class PasswordResetPageLocators():
+    email_field = (By.CSS_SELECTOR, "input[name='email']")
+    send_reset_email_button = (By.CSS_SELECTOR, "button.btn.btn-primary.btn-lg")
+    alert_reset = (By.CSS_SELECTOR, "div#content_inner")
