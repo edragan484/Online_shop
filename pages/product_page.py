@@ -7,7 +7,12 @@ from .locators import ProductPageLocators
 
 
 class ProductPage(BasePage):
-    def should_be_product_name(self):
+    page_link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+
+    def __init__(self, browser):
+        BasePage.__init__(self, browser, ProductPage.page_link)
+
+    def verify_product_name(self):
         product_name = self.browser.find_element(*ProductPageLocators.product_name_on_product_page)
         product_name_text = product_name.text
         assert product_name_text == product_name.text, "Product name '%s' is '%s'" % (product_name, product_name_text)

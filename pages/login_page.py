@@ -7,62 +7,64 @@ from .locators import LoginPageLocators
 
 class LoginPage(BasePage):
     unique_var = random.randint(1, 1000000)
+    email = "{}@mail.com".format(unique_var)
 
-    def should_be_login_page(self):
-        login_page = self.browser.find_element(*LoginPageLocators.should_be_login_page)
-        assert login_page is not None, "Login page is"
+    login_page = "http://selenium1py.pythonanywhere.com/en-gb/accounts/login/"
 
-    def should_be_login_url(self):
-        login_url = self.browser.get(*LoginPageLocators.should_be_login_url)
+    def __init__(self, browser):
+        BasePage.__init__(self, browser, LoginPage.login_page)
+
+    def check_login_page(self):
+        login_page_button = self.find(LoginPageLocators.login_page_button)
+        assert login_page_button is not None, "Login page is"
+        # assert login_page_button == LoginPage.login_page, "Login page is correct"
+
+    def verify_login_url(self):
+        login_url = self.browser.get(LoginPageLocators.login_url)
         login_url_text = login_url.text
         assert login_url == login_url_text, "Login url is and correct"
 
-    def should_be_login_form(self):
-        login_form = self.browser.find_element(*LoginPageLocators.should_be_login_form)
+    def verify_login_form(self):
+        login_form = self.find(LoginPageLocators.login_form)
         assert login_form is not None, "Login form is on page"
 
-    def should_be_register_form(self):
-        register_form = self.browser.find_element(*LoginPageLocators.should_be_register_form)
+    def verify_register_form(self):
+        register_form = self.find(LoginPageLocators.register_form)
         assert register_form is not None, "Register form is on page"
 
     def fill_email_registration_field(self):
-        unique_var = random.randint(1, 1000000)
-        email_address_field = self.browser.find_element(*LoginPageLocators.email_registration_field)
+        email_address_field = self.find(LoginPageLocators.email_registration_field)
         email_address_field.clear()
-        email_address_field.send_keys("{}@gmail.com".format(unique_var))
+        email_address_field.send_keys(LoginPage.email)
 
     def fill_password_registration_field(self):
-        unique_var = random.randint(1, 1000000)
-        password1 = self.browser.find_element(*LoginPageLocators.password_registration_field)
+        password1 = self.find(LoginPageLocators.password_registration_field)
         password1.clear()
-        password1.send_keys(unique_var, unique_var)
+        password1.send_keys(LoginPage.email)
 
     def fill_password_confirmation_field(self):
-        unique_var = random.randint(1, 1000000)
-        password2 = self.browser.find_element(*LoginPageLocators.password_confirmation_field)
+        password2 = self.find(LoginPageLocators.password_confirmation_field)
         password2.clear()
-        password2.send_keys(unique_var, unique_var)
+        password2.send_keys(LoginPage.email)
 
     def submit_new_user(self):
-        button_submit_registration = self.browser.find_element(*LoginPageLocators.button_submit_registration)
+        button_submit_registration = self.find(LoginPageLocators.button_submit_registration)
         button_submit_registration.click()
 
     def fill_user_email_field(self):
-        email_address_field = self.browser.find_element(*LoginPageLocators.email_login)
+        email_address_field = self.find(LoginPageLocators.email_login)
         email_address_field.clear()
         email_address_field.send_keys("user2020@gmail.com")
 
     def fill_user_password_field(self):
-        password1 = self.browser.find_element(*LoginPageLocators.password_login)
+        password1 = self.find(LoginPageLocators.password_login)
         password1.clear()
         password1.send_keys("QRTYvvbbnmYU")
 
     def submit_enter_user(self):
-        button_submit_registration = self.browser.find_element(*LoginPageLocators.button_login)
+        button_submit_registration = self.find(LoginPageLocators.button_login)
         button_submit_registration.click()
 
     def recover_password(self):
-        recover_pass_link = self.browser.find_element(*LoginPageLocators.recover_password_link)
+        recover_pass_link = self.find(LoginPageLocators.recover_password_link)
         recover_pass_link.click()
-        
-

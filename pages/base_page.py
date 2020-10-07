@@ -2,10 +2,10 @@ from selenium.common.exceptions import NoSuchElementException
 
 
 class BasePage:
-    def __init__(self, browser, url, timeout=10):
+    def __init__(self, browser, url):
         self.browser = browser
         self.url = url
-        self.browser.implicitly_wait(timeout)
+        #self.browser.implicitly_wait(timeout)
 
     def open(self):
         self.browser.get(self.url)
@@ -23,9 +23,3 @@ class BasePage:
     def find_in_element(parent, locator):
         return parent.find_elements_by_css_selector(locator)
 
-    def is_element_present(self, how, what):
-        try:
-            self.browser.find_element(how, what)
-        except (NoSuchElementException):
-            return False
-        return True
