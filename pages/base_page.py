@@ -11,6 +11,12 @@ class BasePage:
     def find(self, locator):
         return self.browser.find_element_by_css_selector(locator)
 
+    def find_by_tag_name(self, locator):
+        return self.browser.find_element_by_tag_name(locator)
+
+    def find_by_value(self, locator):
+        return self.browser.find_element_by_value(locator)
+
     def find_all(self, locator):
         return self.browser.find_elements_by_css_selector(locator)
 

@@ -89,6 +89,7 @@ class BasketPageLocators:
 
 
 class CheckoutPageLocators:
+    page_name = "h1"
     checkout_form = "form.form-stacked.well"
     email_field = "input[type='email']"
     checkbox1_guest = "div.radio [value='anonymous']"
@@ -100,9 +101,11 @@ class CheckoutPageLocators:
 
 
 class ShippingAddressPageLocators:
-    new_address_form = ".well"
+    page_name = "h1"
+    new_address_form = "form#new_shipping_address"
     address_form_existing = "div.well address"
-    title_field = "select#id_title"
+    title_name_tag = "select"
+    title_value = "Miss"
     first_name_field = "input[name='first_name']"
     last_name_field = "input[name='last_name']"
     address_field1 = "input[name='line1']"
@@ -111,7 +114,8 @@ class ShippingAddressPageLocators:
     city_field = "input[name='line4']"
     state_field = "input[name='state']"
     postcode_field = "input[name='postcode']"
-    county_field = "select[name='country']"
+    country_field = "select"
+    country_value = "United States"
     phone_field = "input[name='phone_number']"
     textarea_field = "textarea[name='notes']"
     button_continue = "button[type='submit']"
@@ -121,8 +125,6 @@ class ShippingAddressPageLocators:
 
 class EnterPaymentDetailsPageLocators:
     page_name = "h1"
-    paypal_payment = ".page_inner li:nth-child(1) a"
-    datacash_payment = ".page_inner li:nth-child(2) a"
     button_continue = "a#view_preview"
 
 
