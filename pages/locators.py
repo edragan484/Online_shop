@@ -21,6 +21,22 @@ class MainPageLocators:
     shop_name = ".col-sm-7.h1 a"
     shop_subname = ".col-sm-7.h1 small"
     alert_welcome_user = "div.alert.alert-success"
+    item_found = ".product_pod"
+    item_found_name = "h3 a"
+    image_found_item = ".image_container img"
+    welcome_block = "section.well.well-blank:nth-child(1)"
+    welcome_name_article = "section.well.well-blank h2"
+    recommended_reading_block = ".well.promotion_single"
+    recommended_reading_article = ".well.promotion_single h2"
+    other_good_books_block = "section.well.well-blank:nth-child(3)"
+    other_good_books_article = "div.sub-header h3"
+    add_item_to_basket_button = "Add to basket"
+    alert1_of_add = "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]"
+    alert2_of_offer = "//body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]"
+    alert3_of_add = "div.alert.alert-info"
+    view_basket_in_alert = "div.alertinner p a:nth-child(1)"
+    checkout_now_in_alert = "div.alertinner p a:nth-child(2)"
+    item_name_link = "a[title='The City and the Stars']"
 
 
 class LoginPageLocators:

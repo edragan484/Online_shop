@@ -6,5 +6,5 @@ link = "http://selenium1py.pythonanywhere.com/en-gb/accounts/profile/"
 
 
 def open_user_page(browser):
-    page = UserPage(browser, link)
+    page = UserPage(browser)
     page.open()
