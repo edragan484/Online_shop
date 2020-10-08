@@ -19,7 +19,7 @@ class PreviewOrderPage(BasePage):
 
     def verify_payment_review(self):
         payment = self.find(PreviewOrderPageLocators.payment_review)
-        assert payment is not None, "Payment review is presnted in form"
+        assert payment is not None, "Payment review is presented in form"
 
     def verify_basket_items_review(self):
         basket_items = self.find(PreviewOrderPageLocators.basket_items_review)

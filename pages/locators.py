@@ -136,9 +136,11 @@ class PreviewOrderPageLocators:
     button_place_order = "button#place-order"
 
 
-class ConfirmationPageLocators:
-    order_number_confirmation = "div.sub-header h1"
+class OrderConfirmationPageLocators:
+    page_name = "h1"
     address_review = ".well.well-info address"
     basket_items_review = ".basket-items"
     button_print_this_page = "div.col-sm-4:nth-child(1) a"
     button_continue_shopping = "div.col-sm-4:nth-child(2) a"
+    addition_page = "print-preview-app"
+    print_button_addition_page = "cr-button.action-button"
