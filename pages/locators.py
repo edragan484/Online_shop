@@ -129,6 +129,7 @@ class EnterPaymentDetailsPageLocators:
 
 
 class PreviewOrderPageLocators:
+    page_name = "h1"
     address_review = ".well.well-info address"
     payment_review = ".well.well-success"
     basket_items_review = ".basket-items"
