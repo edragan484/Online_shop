@@ -1,3 +1,4 @@
+
 from .base_page import BasePage
 from .login_page import LoginPage
 
@@ -136,7 +137,7 @@ class MainPage(BasePage):
         assert "offer" in alert2
 
     def verify_alert_basket_total(self):
-        alert3 = self.find_by_xpath(MainPageLocators.alert3_of_add).text
+        alert3 = self.find(MainPageLocators.alert3_of_add).text
         assert "Your basket total is now" in alert3, "Alert of total prise in basket"
 
     def verify_view_basket_button_in_alert(self):
@@ -155,7 +156,8 @@ class MainPage(BasePage):
         checkout_alert = self.find(MainPageLocators.checkout_now_in_alert)
         checkout_alert.click()
 
-
     def go_to_product_page_from_main_page(self):
         item_name_link = self.find(MainPageLocators.item_name_link)
         item_name_link.click()
+
+

@@ -30,7 +30,7 @@ class MainPageLocators:
     recommended_reading_article = ".well.promotion_single h2"
     other_good_books_block = "section.well.well-blank:nth-child(3)"
     other_good_books_article = "div.sub-header h3"
-    add_item_to_basket_button = "Add to basket"
+    add_item_to_basket_button = "//body/div[2]/div[1]/div[1]/div[1]/div[2]/section[2]/ul[1]/li[4]/article[1]/div[2]/form[1]/button[1]"
     alert1_of_add = "//body/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]"
     alert2_of_offer = "//body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[2]/div[1]"
     alert3_of_add = "div.alert.alert-info"
@@ -88,12 +88,14 @@ class BasketPageLocators:
     free_shipping = "tr:nth-child(5) th.total.align-right"
 
 
-class WhoAreYouPageLocators:
+class CheckoutPageLocators:
+    checkout_form = "form.form-stacked.well"
     email_field = "input[type='email']"
     checkbox1_guest = "div.radio [value='anonymous']"
     checkbox2_existing = "div.radio [value='existing']"
     password_field = "input[type='password']"
     checkbox3_new = "div.radio [value='new']"
+    password_reminder_link = ".form-inline a"
     button_continue = "button[type='submit']"
 
 

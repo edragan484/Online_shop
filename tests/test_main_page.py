@@ -34,6 +34,7 @@ def test_guest_check_change_languages(browser):
     page.change_language_to_deutsch()
     page.verify_menu_and_basket_text_in_deutsch()
 
+
 # Ispraviti
 def test_verify_search_item(browser):
     page = MainPage(browser)
@@ -59,13 +60,44 @@ def test_verify_other_books_block(browser):
     page.open()
     page.verify_other_good_books_block()
 
-# Ispraviti
+
 def test_add_item_to_basket(browser):
     page = MainPage(browser)
     page.open()
     page.add_to_basket_from_main_page()
-    time.sleep(3)
+
+
+def test_verify_alerts_of_add_item_to_basket(browser):
+    page = MainPage(browser)
+    page.open()
+    page.add_to_basket_from_main_page()
     page.verify_alert_of_add_item_to_basket()
     page.verify_alert_of_offer()
     page.verify_alert_basket_total()
+
+
+def test_verify_basket_and_checkout_buttons_in_alert(browser):
+    page = MainPage(browser)
+    page.open()
+    page.add_to_basket_from_main_page()
+    page.verify_alert_basket_total()
+    page.verify_view_basket_button_in_alert()
+    page.verify_checkout_in_alert()
+
+
+def test_go_to_basket_from_add_item_alert(browser):
+    page = MainPage(browser)
+    page.open()
+    page.add_to_basket_from_main_page()
+    page.verify_alert_basket_total()
+    page.go_to_basket_from_alert()
+
+
+def test_go_to_checkout_from_add_item_alert(browser):
+    page = MainPage(browser)
+    page.open()
+    page.add_to_basket_from_main_page()
+    page.verify_alert_basket_total()
+    page.go_to_checkout_from_alert()
+
 
