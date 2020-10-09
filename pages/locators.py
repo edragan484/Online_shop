@@ -144,3 +144,60 @@ class OrderConfirmationPageLocators:
     button_continue_shopping = "div.col-sm-4:nth-child(2) a"
     addition_page = "print-preview-app"
     print_button_addition_page = "cr-button.action-button"
+
+
+class RegisterFromCheckoutPageLocators:
+    page_name = "h1"
+    email_field = "input[name='email']"
+    new_password = "input[name='password1']"
+    confirm_password = "input[name='password2']"
+    button_register = "button[name='registration_submit']"
+
+
+class AllProductsPageLocators:
+    page_name = "h1"
+    items_block = "div.col-sm-8.col-md-9"
+    menu_block = "div.side_categories"
+    button_next = ".next a"
+    clothing_link = "Clothing"
+    books_link = "Books"
+    fiction_link = "Fiction"
+    computers = "Computers in Literature"
+    non_fiction_link = "Non-Fiction"
+    programming_link = "Essential programming"
+    hacking_link = "Hacking"
+    product_text_link = "Coders at Work"
+    product_image_link = ".product_pod img[alt='Coders at Work']"
+    add_to_button_item = "//body/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/ol[1]/li[3]/article[1]/div[2]/form[1]/button[1]"
+
+
+class ClothingPageLocators:
+    page_name = "h1"
+    menu_block = ".side_categories"
+    product_clothing_block = "ol.row"
+    clothing_link = "Clothing"
+    books_link = "Books"
+    fiction_link = "Fiction"
+    computers = "Computers in Literature"
+    non_fiction_link = "Non-Fiction"
+    programming_link = "Essential programming"
+    hacking_link = "Hacking"
+    product_image_link = ".image_container [alt='Django T-shirt']"
+    product_text_link = "Django T-shirt"
+
+
+class ClothingProductPageLocators:
+    page_name = "h1"
+    product_image = ".carousel-inner"
+    review_button = "a#write_review"
+    viewed_products = "ul.row"
+    variant1 = "//body/div[2]/div[1]/div[2]/div[2]/article[1]/div[1]/div[2]/a[1]"
+    variant2 = "//body/div[2]/div[1]/div[2]/div[2]/article[1]/div[1]/div[2]/a[2]"
+
+
+class ClothingVariantPageLocators:
+    page_name = "h1"
+    variant_image = ".carousel-inner"
+    review_button = "a#write_review"
+    button_add_to_basket = "button[type='submit'].btn.btn-add-to-basket"
+    viewed_products = "ul.row"

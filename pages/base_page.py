@@ -14,6 +14,9 @@ class BasePage:
     def find_by_tag_name(self, locator):
         return self.browser.find_element_by_tag_name(locator)
 
+    def find_by_link_text(self, locator):
+        return self.browser.find_element_by_link_text(locator)
+
     def find_by_value(self, locator):
         return self.browser.find_element_by_value(locator)
 
