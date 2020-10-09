@@ -10,7 +10,7 @@ class ClothingPage(BasePage):
 
     def verify_page_name(self):
         page_name = self.find(ClothingPageLocators.page_name)
-        assert page_name == "Clothing"
+        assert page_name == "Clothing", "'%s' is correct page name" % page_name
 
     def verify_menu_block(self):
         menu = self.find(ClothingPageLocators.menu_block)
@@ -22,31 +22,31 @@ class ClothingPage(BasePage):
 
     def verify_menu_clothing_link(self):
         clothing = self.find_by_link_text(ClothingPageLocators.clothing_link).text
-        assert clothing == "Clothing"
+        assert clothing == "Clothing", "'%s' is correct link name" % clothing
 
     def verify_menu_books_link(self):
         books_link = self.find_by_link_text(ClothingPageLocators.books_link).text
-        assert books_link == "Books"
+        assert books_link == "Books", "'%s' is correct link name" % books_link
 
     def verify_menu_fiction(self):
         fiction_link = self.find_by_link_text(ClothingPageLocators.fiction_link).text
-        assert fiction_link == "Fiction"
+        assert fiction_link == "Fiction", "'%s' is correct link name" % fiction_link
 
     def verify_menu_computers(self):
         computers_link = self.find_by_link_text(ClothingPageLocators.computers).text
-        assert computers_link == "Computers in Literature"
+        assert computers_link == "Computers in Literature", "'%s' is correct link name" % computers_link
 
     def verify_menu_non_fiction(self):
         non_fiction_link = self.find_by_link_text(ClothingPageLocators.non_fiction_link)
-        assert non_fiction_link == "Non-Fiction"
+        assert non_fiction_link == "Non-Fiction", "'%s' is correct link name" % non_fiction_link
 
     def verify_menu_programming(self):
         programming_link = self.find_by_link_text(ClothingPageLocators.programming_link)
-        assert programming_link == "Essential programming"
+        assert programming_link == "Essential programming", "'%s' is correct link name" % programming_link
 
     def verify_menu_hacking(self):
         hacking_link = self.find_by_link_text(ClothingPageLocators.hacking_link)
-        assert hacking_link == "Hacking"
+        assert hacking_link == "Hacking", "'%s' is correct link name" % hacking_link
 
     def verify_image_product_link(self):
         image_product = self.find(ClothingPageLocators.product_image_link)

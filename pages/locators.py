@@ -55,6 +55,7 @@ class LoginPageLocators:
 
 
 class UserPageLocators:
+    name_page = "h1"
     registration_alert = "div#messages"
     link_to_account = "a i.icon-user"
     logout_link = "a#logout_link"
@@ -65,6 +66,10 @@ class UserPageLocators:
     product_alerts_link_in_menu = ".nav.nav-pills.nav-stacked li:nth-child(5)"
     notification_link_in_menu = ".nav.nav-pills.nav-stacked li:nth-child(6)"
     wish_lists_link_in_menu = ".nav.nav-pills.nav-stacked li:nth-child(7)"
+    profile_block = ".col-sm-8.col-md-9"
+    change_password_button = "Change password"
+    edit_profile_button = "Edit profile"
+    delete_profile_button = "Delete profile"
 
 
 class ProductPageLocators:
@@ -201,3 +206,20 @@ class ClothingVariantPageLocators:
     review_button = "a#write_review"
     button_add_to_basket = "button[type='submit'].btn.btn-add-to-basket"
     viewed_products = "ul.row"
+
+
+class BooksPageLocators:
+    page_name = "h1"
+    menu_block = ".side_categories"
+    product_block = "ol.row"
+    product_image_link = ".product_pod img[alt='Coders at Work']"
+    product_link = ".product_pod a[title='Coders at Work']"
+    add_to_basket_button = "//body/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/ol[1]/li[3]/article[1]/div[2]/form[1]/button[1]"
+    next_button = ".next"
+
+
+class BooksPage2Locators:
+    page_name = "h1"
+    next_button = ".next"
+    button_previous = ".previous"
+
