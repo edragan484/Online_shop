@@ -20,7 +20,7 @@ class ShippingAddressPage(BasePage):
     def fill_shipping_title(self):
         title_tag = self.find_by_tag_name(ShippingAddressPageLocators.title_name_tag)
         title_tag.click()
-        title_value = self.find_by_value(ShippingAddressPageLocators.title_value)
+        title_value = self.find(ShippingAddressPageLocators.title_value)
         title_value.click()
 
     def fill_first_name(self):
@@ -56,8 +56,10 @@ class ShippingAddressPage(BasePage):
         zipcode.send_keys("95123")
 
     def fill_country(self):
-        self.find_by_tag_name(ShippingAddressPageLocators.country_field)
-        self.find_by_value("United States")
+        country_tag = self.find_by_tag_name(ShippingAddressPageLocators.country_field)
+        country_tag.click()
+        country_value = self.find(ShippingAddressPageLocators.country_value)
+        country_value.click()
 
     def fill_phone(self):
         phone_number = self.find(ShippingAddressPageLocators.phone_field)

@@ -10,8 +10,8 @@ class EnterPaymentDetailsPage(BasePage):
         BasePage.__init__(self, browser, EnterPaymentDetailsPage.page_link)
 
     def verify_name_page(self):
-        name_page = self.find(EnterPaymentDetailsPageLocators.page_name)
-        assert name_page == "Enter payment details", "Page name is correct"
+        name_page = self.find(EnterPaymentDetailsPageLocators.page_name).text
+        assert "Enter payment details" in name_page, "Name page '%s' name is correct" % name_page
 
     def push_button_continue(self):
         continue_button = self.find(EnterPaymentDetailsPageLocators.button_continue)

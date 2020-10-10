@@ -28,7 +28,7 @@ class CheckoutPage(BasePage):
 
     def new_customer_button_checked(self):
         new_customer = self.find(CheckoutPageLocators.checkbox1_guest)
-        new_customer.ckick()
+        new_customer.click()
 
     def returning_customer_button_checked(self):
         returning_customer = self.find(CheckoutPageLocators.checkbox2_existing)
@@ -48,7 +48,7 @@ class CheckoutPage(BasePage):
 
     def password_reminder_link(self):
         password_reminder = self.find(CheckoutPageLocators.password_reminder_link)
-        password_reminder.ckick()
+        password_reminder.click()
 
     def button_continue(self):
         button_continue = self.find(CheckoutPageLocators.button_continue)

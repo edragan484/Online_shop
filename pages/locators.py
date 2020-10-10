@@ -22,8 +22,9 @@ class MainPageLocators:
     shop_subname = ".col-sm-7.h1 small"
     alert_welcome_user = "div.alert.alert-success"
     item_found = ".product_pod"
-    item_found_name = "h3 a"
-    image_found_item = ".image_container img"
+    item_found_name_link = "h3 a"
+    image_found_item = "article.product_pod img"
+    menu_block = "ul.dropdown-menu[data-navigation='dropdown-menu']"
     welcome_block = "section.well.well-blank:nth-child(1)"
     welcome_name_article = "section.well.well-blank h2"
     recommended_reading_block = ".well.promotion_single"
@@ -36,7 +37,7 @@ class MainPageLocators:
     alert3_of_add = "div.alert.alert-info"
     view_basket_in_alert = "div.alertinner p a:nth-child(1)"
     checkout_now_in_alert = "div.alertinner p a:nth-child(2)"
-    item_name_link = "a[title='The City and the Stars']"
+    item_name_link = "a[title='Coders at Work']"
 
 
 class LoginPageLocators:
@@ -91,6 +92,7 @@ class BasketPageLocators:
     sum_price = "h3.price_color"
     button_proceed_to_checkout = "a.btn.btn-lg.btn-primary"
     free_shipping = "tr:nth-child(5) th.total.align-right"
+    proceed_to_checkout_button = ".col-sm-4.col-sm-offset-8 a"
 
 
 class CheckoutPageLocators:
@@ -110,7 +112,7 @@ class ShippingAddressPageLocators:
     new_address_form = "form#new_shipping_address"
     address_form_existing = "div.well address"
     title_name_tag = "select"
-    title_value = "Miss"
+    title_value = "[value='Miss']"
     first_name_field = "input[name='first_name']"
     last_name_field = "input[name='last_name']"
     address_field1 = "input[name='line1']"
@@ -120,7 +122,7 @@ class ShippingAddressPageLocators:
     state_field = "input[name='state']"
     postcode_field = "input[name='postcode']"
     country_field = "select"
-    country_value = "United States"
+    country_value = "[value='US']"
     phone_field = "input[name='phone_number']"
     textarea_field = "textarea[name='notes']"
     button_continue = "button[type='submit']"
@@ -222,4 +224,3 @@ class BooksPage2Locators:
     page_name = "h1"
     next_button = ".next"
     button_previous = ".previous"
-

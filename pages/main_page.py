@@ -1,4 +1,3 @@
-
 from .base_page import BasePage
 from .login_page import LoginPage
 
@@ -56,25 +55,51 @@ class MainPage(BasePage):
         basket_button = self.find(MainPageLocators.basket)
         assert "Warenkorb anzeigen" == basket_button.text, "Translate is correct"
 
+    def verify_another_method_deutsch(self, menu_deutsch, basket_deutsch):
+        all_products_button = self.find(MainPageLocators.all_products)
+        assert menu_deutsch == all_products_button.text, "Translate is correct"
+        basket_button = self.find(MainPageLocators.basket)
+        assert basket_deutsch == basket_button.text, "Translate is correct"
+
     def verify_welcome_success_alert(self):
         alert_welcome = self.find(MainPageLocators.alert_welcome_user).text
         assert alert_welcome is not None
 
+    def verify_all_products_button_menu(self):
+        all_products_button = self.find(MainPageLocators.all_products_menu_link)
+        assert all_products_button is not None, "Button '%s' is presented on page" % all_products_button
+
     def go_to_all_products_button_menu(self):
-        all_products_button = self.find(MainPageLocators.all_products)
+        all_products_button = self.find(MainPageLocators.all_products_menu_link)
         all_products_button.click()
+
+    def verify_clothing_button_menu(self):
+        clothing_button = self.find(MainPageLocators.clothing_menu_link)
+        assert clothing_button is not None, "Button '%s' is presented on page" % clothing_button
 
     def go_to_clothing_button_menu(self):
         clothing_button = self.find(MainPageLocators.clothing_menu_link)
         clothing_button.click()
 
+    def verify_books_button_menu(self):
+        books_button = self.find(MainPageLocators.books_menu_link)
+        assert books_button is not None, "Button '%s' is presented on page" % books_button
+
     def go_to_books_button_menu(self):
         books_button = self.find(MainPageLocators.books_menu_link)
         books_button.click()
 
+    def verify_offers_button_menu(self):
+        offers_button = self.find(MainPageLocators.offers_menu_link)
+        assert offers_button is not None, "Button '%s' is presented on page" % offers_button
+
     def go_to_offers_button_menu(self):
         offers_button = self.find(MainPageLocators.offers_menu_link)
         offers_button.click()
+
+    def verify_basket_view_button(self):
+        basket_view_button = self.find(MainPageLocators.basket)
+        assert basket_view_button is not None, "Button '%s' is presented on page" % basket_view_button
 
     def go_to_basket_view_button(self):
         basket_view_button = self.find(MainPageLocators.basket)
@@ -84,26 +109,29 @@ class MainPage(BasePage):
         basket_menu_button = self.find(MainPageLocators.basket_switch)
         basket_menu_button.click()
 
-    def searching_item(self):
+    def searching_item(self, product_name):
         search_field_text = self.find(MainPageLocators.search_field)
-        search_field_text.send_keys("The City and the Stars")
+        search_field_text.send_keys(product_name)
         push_search_button = self.find(MainPageLocators.button_search)
         push_search_button.click()
 
-    def verify_search_items_is_correct(self):
+    def verify_search_items_is_correct(self, product_name1):
         found_item = self.find(MainPageLocators.item_found)
-        assert found_item is not None, "Item '%s' is found in searching" % found_item
+        assert found_item is not None, "Item '%s' is found in searching"
 
-        found_item_name = self.find(MainPageLocators.item_found_name).text
-        search_field_text = self.find(MainPageLocators.search_field).text
-        assert found_item_name == search_field_text, "Found items '%s' name is correct" % found_item_name
+        found_item_name = self.find(MainPageLocators.item_found_name_link).text
+        assert found_item_name == product_name1, \
+            "Found item name '%s' is correct as '%s'" % (found_item_name, product_name1)
 
+    def verify_image_found_item_is_correct(self, product_name1):
         item_image = self.find(MainPageLocators.image_found_item)
         assert item_image is not None, "Item image is on the page"
-        assert search_field_text in item_image.get_attribute("alt"), \
+        assert product_name1 == item_image.get_attribute("alt"), \
             "Item should contain image with correct alt, but it doesn't"
-        item_desc = MainPage.find(MainPageLocators.item_found_name)
-        assert search_field_text in item_desc.text, "Search result should contain searching string in its text"
+
+    def verify_menu_block(self):
+        menu_block = self.find(MainPageLocators.menu_block)
+        assert menu_block is not None, "Menu block is presented on page"
 
     def verify_welcome_block(self):
         welcome_block = self.find(MainPageLocators.welcome_block)
@@ -127,6 +155,10 @@ class MainPage(BasePage):
     def add_to_basket_from_main_page(self):
         add_to_basket_button = self.find_by_xpath(MainPageLocators.add_item_to_basket_button)
         add_to_basket_button.click()
+
+    def press_basket_button(self):
+        press_button = self.find(MainPageLocators.basket)
+        press_button.click()
 
     def verify_alert_of_add_item_to_basket(self):
         alert1 = self.find_by_xpath(MainPageLocators.alert1_of_add).text
@@ -160,4 +192,5 @@ class MainPage(BasePage):
         item_name_link = self.find(MainPageLocators.item_name_link)
         item_name_link.click()
 
-
+    def go_to_basket_page(self):
+        go_to_basket = self.find()

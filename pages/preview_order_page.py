@@ -10,7 +10,7 @@ class PreviewOrderPage(BasePage):
         BasePage.__init__(self, browser, PreviewOrderPage.page_link)
 
     def verify_name_page(self):
-        page_name = self.find(PreviewOrderPageLocators.page_name)
+        page_name = self.find(PreviewOrderPageLocators.page_name).text
         assert page_name == "Preview order", "'%s' is correct name page"
 
     def verify_address_review(self):
