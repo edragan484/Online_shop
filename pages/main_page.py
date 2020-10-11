@@ -193,4 +193,9 @@ class MainPage(BasePage):
         item_name_link.click()
 
     def go_to_basket_page(self):
-        go_to_basket = self.find()
+        go_to_basket = self.find(MainPageLocators.basket)
+        go_to_basket.click()
+
+
+
+

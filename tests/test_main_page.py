@@ -1,5 +1,6 @@
 import time
 
+import pytest
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
 from pages.user_page import UserPage
@@ -11,7 +12,8 @@ from pages.preview_order_page import PreviewOrderPage
 from pages.order_confirmation_page import OrderConfirmationPage
 
 
-class TestMainPageForGuestsRegress:
+@pytest.mark.regress
+class TestMainPageForGuests:
     product_name1 = "Coders at Work"
     menu_deutsch = "Im Webshop stöbern"
     basket_deutsch = "Warenkorb anzeigen"
@@ -41,14 +43,14 @@ class TestMainPageForGuestsRegress:
         page.verify_menu_and_basket_text_in_it()
         page.change_language_to_deutsch()
         page.verify_menu_and_basket_text_in_deutsch()
-        page.verify_another_method_deutsch(TestMainPageForGuestsRegress.menu_deutsch, TestMainPageForGuestsRegress.basket_deutsch)
+        page.verify_another_method_deutsch(TestMainPageForGuests.menu_deutsch, TestMainPageForGuests.basket_deutsch)
 
     def test_verify_search_item(self, browser):
         page = MainPage(browser)
         page.open()
-        page.searching_item(TestMainPageForGuestsRegress.product_name1)
-        page.verify_search_items_is_correct(TestMainPageForGuestsRegress.product_name1)
-        page.verify_image_found_item_is_correct(TestMainPageForGuestsRegress.product_name1)
+        page.searching_item(TestMainPageForGuests.product_name1)
+        page.verify_search_items_is_correct(TestMainPageForGuests.product_name1)
+        page.verify_image_found_item_is_correct(TestMainPageForGuests.product_name1)
 
     def test_verify_welcome_block(self, browser):
         page = MainPage(browser)
@@ -126,8 +128,17 @@ class TestMainPageForGuestsRegress:
         page.verify_view_basket_button_in_alert()
         page.verify_checkout_in_alert()
 
+    def test_registered_user_on_site(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.go_to_login_page()
+        login_page = LoginPage(browser)
+        login_page.open()
+        login_page.registered_user_on_main_page()
 
-class TestMainPageForGuestEndToEnd:
+
+@pytest.mark.e2e
+class TestMainPageForGuest:
     def test_buy_product_from_main_page(self, browser):
         page = MainPage(browser)
         page.open()
