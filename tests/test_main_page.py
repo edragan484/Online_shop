@@ -71,7 +71,12 @@ class TestMainPageForGuests:
     def test_click_product_link(self, browser):
         page = MainPage(browser)
         page.open()
-        page.go_to_product_page_from_main_page()
+        page.go_to_product_page_from_product_name_link()
+
+    def test_click_product_image_link(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.go_to_product_page_from_product_name_image()
 
     def test_add_item_to_basket(self, browser):
         page = MainPage(browser)
@@ -260,6 +265,12 @@ class TestMainPageForRegisteredUser:
         page.open()
         page.user_in_system()
         page.go_to_product_page_from_product_name_link()
+
+    def test_click_product_image_link(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.go_to_product_page_from_product_name_image()
 
     def test_add_item_to_basket(self, browser):
         page = MainPage(browser)
