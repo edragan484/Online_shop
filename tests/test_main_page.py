@@ -15,6 +15,7 @@ from pages.order_confirmation_page import OrderConfirmationPage
 @pytest.mark.regress
 class TestMainPageForGuests:
     product_name1 = "Coders at Work"
+    product_name2 = "The City and the Stars"
     menu_deutsch = "Im Webshop stöbern"
     basket_deutsch = "Warenkorb anzeigen"
 
@@ -36,7 +37,7 @@ class TestMainPageForGuests:
         login_page = LoginPage(browser)
         login_page.check_login_page()
 
-    def test_guest_check_change_languages(self, browser):
+    def test_check_change_languages(self, browser):
         page = MainPage(browser)
         page.open()
         page.change_language_to_it()
@@ -66,6 +67,11 @@ class TestMainPageForGuests:
         page = MainPage(browser)
         page.open()
         page.verify_other_good_books_block()
+
+    def test_click_product_link(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.go_to_product_page_from_main_page()
 
     def test_add_item_to_basket(self, browser):
         page = MainPage(browser)
@@ -128,13 +134,18 @@ class TestMainPageForGuests:
         page.verify_view_basket_button_in_alert()
         page.verify_checkout_in_alert()
 
-    def test_registered_user_on_site(self, browser):
+    def test_register_user_on_site(self, browser):
         page = MainPage(browser)
         page.open()
         page.go_to_login_page()
         login_page = LoginPage(browser)
         login_page.open()
-        login_page.registered_user_on_main_page()
+        login_page.register_user_on_main_page()
+
+    def test_user_in_system(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
 
 
 @pytest.mark.e2e
@@ -186,3 +197,136 @@ class TestMainPageForGuest:
         order_confirmation_page.verify_basket_items_review()
         order_confirmation_page.verify_button_print_page()
         order_confirmation_page.verify_continue_shopping()
+
+
+@pytest.mark.regress
+class TestMainPageForRegisteredUser:
+    product_name1 = "Coders at Work"
+    product_name2 = "The City and the Stars"
+    menu_deutsch = "Im Webshop stöbern"
+    basket_deutsch = "Warenkorb anzeigen"
+
+    def test_verify_site_name(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.verify_site_name()
+        page.verify_site_subname()
+
+    def test_verify_account_icon_link(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.verify_account_icon_link()
+
+    def test_check_change_languages(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.change_language_to_it()
+        page.verify_menu_and_basket_text_in_it()
+        page.change_language_to_deutsch()
+        page.verify_menu_and_basket_text_in_deutsch()
+        page.verify_another_method_deutsch(TestMainPageForRegisteredUser.menu_deutsch, TestMainPageForRegisteredUser.basket_deutsch)
+
+    def test_verify_search_item(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.searching_item(TestMainPageForRegisteredUser.product_name1)
+        page.verify_search_items_is_correct(TestMainPageForRegisteredUser.product_name1)
+        page.verify_image_found_item_is_correct(TestMainPageForRegisteredUser.product_name1)
+
+    def test_verify_welcome_block(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.verify_welcome_block()
+
+    def test_verify_recommended_reading_block(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.verify_recommended_reading_block()
+
+    def test_verify_other_books_block(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.verify_other_good_books_block()
+
+    def test_click_product_link(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.go_to_product_page_from_product_name_link()
+
+    def test_add_item_to_basket(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.add_to_basket_from_main_page()
+
+    def test_verify_alerts_of_add_item_to_basket(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.add_to_basket_from_main_page()
+        page.verify_alert_of_add_item_to_basket()
+        page.verify_alert_of_offer()
+        page.verify_alert_basket_total()
+
+    def test_verify_basket_and_checkout_buttons_in_alert(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.add_to_basket_from_main_page()
+        page.verify_alert_basket_total()
+        page.verify_view_basket_button_in_alert()
+        page.verify_checkout_in_alert()
+
+    def test_go_to_basket_from_add_item_alert(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.add_to_basket_from_main_page()
+        page.verify_alert_basket_total()
+        page.go_to_basket_from_alert()
+
+    def test_go_to_checkout_from_add_item_alert(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.add_to_basket_from_main_page()
+        page.verify_alert_basket_total()
+        page.go_to_checkout_from_alert()
+
+    def test_verify_page_constructor(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.verify_menu_block()
+        page.verify_welcome_block()
+        page.verify_other_good_books_block()
+        page.verify_recommended_reading_block()
+
+    def test_verify_menu_links(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.verify_all_products_button_menu()
+        page.verify_clothing_button_menu()
+        page.verify_books_button_menu()
+        page.verify_offers_button_menu()
+
+    def test_verify_add_item_to_basket(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.add_to_basket_from_main_page()
+        page.verify_alert_of_add_item_to_basket()
+        page.verify_alert_of_offer()
+        page.verify_alert_basket_total()
+        page.verify_view_basket_button_in_alert()
+        page.verify_checkout_in_alert()
+

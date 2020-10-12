@@ -2,6 +2,7 @@ from .base_page import BasePage
 from .login_page import LoginPage
 
 from .locators import MainPageLocators
+from .locators import LoginPageLocators
 
 
 class MainPage(BasePage):
@@ -26,6 +27,10 @@ class MainPage(BasePage):
     def verify_login_link(self):
         login_link = self.find(MainPageLocators.login_page_link)
         assert login_link, "Login link is not presented"
+
+    def verify_account_icon_link(self):
+        icon_link = self.find(MainPageLocators.icon_link)
+        assert icon_link is not None
 
     def change_language_to_it(self):
         language1 = self.find(MainPageLocators.language_field)
@@ -188,13 +193,28 @@ class MainPage(BasePage):
         checkout_alert = self.find(MainPageLocators.checkout_now_in_alert)
         checkout_alert.click()
 
-    def go_to_product_page_from_main_page(self):
-        item_name_link = self.find(MainPageLocators.item_name_link)
-        item_name_link.click()
+    def go_to_product_page_from_product_name_link(self):
+        product_page_link = self.find(MainPageLocators.item_name_link)
+        product_page_link.click()
+
+    def go_to_product_page_from_product_name_image(self):
+        product_page_image = self.find(MainPageLocators.item_name_image)
+        product_page_image.click()
 
     def go_to_basket_page(self):
         go_to_basket = self.find(MainPageLocators.basket)
         go_to_basket.click()
+
+    def user_in_system(self):
+        login = self.find(MainPageLocators.login_page_link)
+        login.click()
+        login_page_email = self.find(LoginPageLocators.email_login)
+        login_page_email.send_keys("user2020@gmail.com")
+        login_page_pass = self.find(LoginPageLocators.password_login)
+        login_page_pass.send_keys("QRTYvvbbnmYU")
+        enter_button = self.find(LoginPageLocators.button_login)
+        enter_button.click()
+
 
 
 

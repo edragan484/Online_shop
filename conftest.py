@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options
 
 
 def pytest_addoption(parser):
-    parser.addoption('--language', action='store', default=None,
+    parser.addoption('--language', action='store', default='en-gb',
                      help="Choose GUI language for tests")
 
 
@@ -25,5 +25,3 @@ def browser(request):
 
     print("\nquit browser..")
     document.quit()
-
-

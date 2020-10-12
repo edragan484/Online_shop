@@ -69,7 +69,7 @@ class LoginPage(BasePage):
         recover_pass_link = self.find(LoginPageLocators.recover_password_link)
         recover_pass_link.click()
 
-    def registered_user_on_main_page(self):
+    def register_user_on_main_page(self):
         email_address_field = self.find(LoginPageLocators.email_login)
         email_address_field.clear()
         email_address_field.send_keys("user2020@gmail.com")
@@ -78,4 +78,5 @@ class LoginPage(BasePage):
         password1.send_keys("QRTYvvbbnmYU")
         button_submit_registration = self.find(LoginPageLocators.button_login)
         button_submit_registration.click()
+
 

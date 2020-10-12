@@ -38,6 +38,8 @@ class MainPageLocators:
     view_basket_in_alert = "div.alertinner p a:nth-child(1)"
     checkout_now_in_alert = "div.alertinner p a:nth-child(2)"
     item_name_link = "a[title='Coders at Work']"
+    item_name_image = "a img[alt='The City and the Stars']"
+    icon_link = ".icon-user"
 
 
 class LoginPageLocators:
@@ -74,8 +76,11 @@ class UserPageLocators:
 
 
 class ProductPageLocators:
-    button_add_from_product_page = "button[type='submit'].btn.btn-lg.btn-primary.btn-add-to-basket"
-    product_name_on_product_page = "h1"
+    name_page = "h1"
+    button_add = "button[type='submit'].btn.btn-lg.btn-primary.btn-add-to-basket"
+    product_image = "div.carousel-inner img"
+    product_price = ".col-sm-6.product_main p.price_color"
+    review_button = "a#write_review"
     alert_of_add_product = "div.alert.alert-safe.alert-noicon:nth-child(1)"
     name_in_alert_add_product = "div.alert.alert-safe.alert-noicon:nth-child(1) strong"
 
