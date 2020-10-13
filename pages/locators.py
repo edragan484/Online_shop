@@ -40,6 +40,7 @@ class MainPageLocators:
     item_name_link = "a[title='Coders at Work']"
     item_name_image = "a img[alt='The City and the Stars']"
     icon_link = ".icon-user"
+    logout_link = "a#logout_link"
 
 
 class LoginPageLocators:
@@ -55,6 +56,7 @@ class LoginPageLocators:
     password_login = "input[name='login-password']"
     button_login = "button[name='login_submit']"
     recover_password_link = "form#login_form a"
+    logout_link = "a#logout_link"
 
 
 class UserPageLocators:
@@ -72,7 +74,8 @@ class UserPageLocators:
     profile_block = ".col-sm-8.col-md-9"
     change_password_button = "Change password"
     edit_profile_button = "Edit profile"
-    delete_profile_button = "Delete profile"
+    delete_profile_button = "a#delete_profile"
+    alert_of_change_pass = ".alertinner.wicon"
 
 
 class ProductPageLocators:
@@ -83,12 +86,14 @@ class ProductPageLocators:
     review_button = "a#write_review"
     alert_of_add_product = "div.alert.alert-safe.alert-noicon:nth-child(1)"
     name_in_alert_add_product = "div.alert.alert-safe.alert-noicon:nth-child(1) strong"
+    logout_link = "a#logout_link"
 
 
 class PasswordResetPageLocators:
     email_field = "input[name='email']"
     send_reset_email_button = "button.btn.btn-primary.btn-lg"
     alert_reset = "div#content_inner"
+    logout_link = "a#logout_link"
 
 
 class BasketPageLocators:
@@ -98,6 +103,7 @@ class BasketPageLocators:
     button_proceed_to_checkout = "a.btn.btn-lg.btn-primary"
     free_shipping = "tr:nth-child(5) th.total.align-right"
     proceed_to_checkout_button = ".col-sm-4.col-sm-offset-8 a"
+    logout_link = "a#logout_link"
 
 
 class CheckoutPageLocators:
@@ -110,6 +116,7 @@ class CheckoutPageLocators:
     checkbox3_new = "div.radio [value='new']"
     password_reminder_link = ".form-inline a"
     button_continue = "button[type='submit']"
+    logout_link = "a#logout_link"
 
 
 class ShippingAddressPageLocators:
@@ -133,11 +140,13 @@ class ShippingAddressPageLocators:
     button_continue = "button[type='submit']"
     return_to_basket_link = ".col-sm-offset-4.col-sm-8 a"
     choose_address_button = "button[type='submit'].btn.ship-address"
+    logout_link = "a#logout_link"
 
 
 class EnterPaymentDetailsPageLocators:
     page_name = "h1"
     button_continue = "a#view_preview"
+    logout_link = "a#logout_link"
 
 
 class PreviewOrderPageLocators:
@@ -146,6 +155,7 @@ class PreviewOrderPageLocators:
     payment_review = ".well.well-success"
     basket_items_review = ".basket-items"
     button_place_order = "button#place-order"
+    logout_link = "a#logout_link"
 
 
 class OrderConfirmationPageLocators:
@@ -156,6 +166,7 @@ class OrderConfirmationPageLocators:
     button_continue_shopping = "div.col-sm-4:nth-child(2) a"
     addition_page = "print-preview-app"
     print_button_addition_page = "cr-button.action-button"
+    logout_link = "a#logout_link"
 
 
 class RegisterFromCheckoutPageLocators:
@@ -164,6 +175,7 @@ class RegisterFromCheckoutPageLocators:
     new_password = "input[name='password1']"
     confirm_password = "input[name='password2']"
     button_register = "button[name='registration_submit']"
+    logout_link = "a#logout_link"
 
 
 class AllProductsPageLocators:
@@ -181,6 +193,7 @@ class AllProductsPageLocators:
     product_text_link = "Coders at Work"
     product_image_link = ".product_pod img[alt='Coders at Work']"
     add_to_button_item = "//body/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/ol[1]/li[3]/article[1]/div[2]/form[1]/button[1]"
+    logout_link = "a#logout_link"
 
 
 class ClothingPageLocators:
@@ -196,6 +209,7 @@ class ClothingPageLocators:
     hacking_link = "Hacking"
     product_image_link = ".image_container [alt='Django T-shirt']"
     product_text_link = "Django T-shirt"
+    logout_link = "a#logout_link"
 
 
 class ClothingProductPageLocators:
@@ -205,6 +219,7 @@ class ClothingProductPageLocators:
     viewed_products = "ul.row"
     variant1 = "//body/div[2]/div[1]/div[2]/div[2]/article[1]/div[1]/div[2]/a[1]"
     variant2 = "//body/div[2]/div[1]/div[2]/div[2]/article[1]/div[1]/div[2]/a[2]"
+    logout_link = "a#logout_link"
 
 
 class ClothingVariantPageLocators:
@@ -213,6 +228,7 @@ class ClothingVariantPageLocators:
     review_button = "a#write_review"
     button_add_to_basket = "button[type='submit'].btn.btn-add-to-basket"
     viewed_products = "ul.row"
+    logout_link = "a#logout_link"
 
 
 class BooksPageLocators:
@@ -223,9 +239,19 @@ class BooksPageLocators:
     product_link = ".product_pod a[title='Coders at Work']"
     add_to_basket_button = "//body/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/ol[1]/li[3]/article[1]/div[2]/form[1]/button[1]"
     next_button = ".next"
+    logout_link = "a#logout_link"
 
 
 class BooksPage2Locators:
     page_name = "h1"
     next_button = ".next"
     button_previous = ".previous"
+    logout_link = "a#logout_link"
+
+
+class ChangePasswordPageLocators:
+    page_name = "h1"
+    old_password_field = "input[name='old_password']"
+    new_password_field = "input[name='new_password1']"
+    new_password_confirm = "input[name='new_password2']"
+    save_button = "button.btn.btn-lg[type='submit']"

@@ -1,6 +1,8 @@
 import time
 
 import pytest
+
+from pages.change_password_page import ChangePasswordPage
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
 from pages.user_page import UserPage
@@ -232,7 +234,8 @@ class TestMainPageForRegisteredUser:
         page.verify_menu_and_basket_text_in_it()
         page.change_language_to_deutsch()
         page.verify_menu_and_basket_text_in_deutsch()
-        page.verify_another_method_deutsch(TestMainPageForRegisteredUser.menu_deutsch, TestMainPageForRegisteredUser.basket_deutsch)
+        page.verify_another_method_deutsch(TestMainPageForRegisteredUser.menu_deutsch,
+                                           TestMainPageForRegisteredUser.basket_deutsch)
 
     def test_verify_search_item(self, browser):
         page = MainPage(browser)
@@ -340,4 +343,76 @@ class TestMainPageForRegisteredUser:
         page.verify_alert_basket_total()
         page.verify_view_basket_button_in_alert()
         page.verify_checkout_in_alert()
+
+
+class TestUserPageForRegisteredUser:
+    def test_go_to_user_page(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.go_to_user_page()
+
+    def test_verify_name_page(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.go_to_user_page()
+        user_page = UserPage(browser)
+        user_page.verify_page_name()
+
+    def test_verify_menu_links(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.go_to_user_page()
+        user_page = UserPage(browser)
+        user_page.verify_menu_profile_link()
+        user_page.verify_menu_order_history()
+        user_page.verify_menu_address_book()
+        user_page.verify_menu_address_book()
+        user_page.verify_menu_email_history()
+        user_page.verify_menu_product_alerts()
+        user_page.verify_menu_notifications()
+        user_page.verify_menu_wish_lists()
+
+    def test_verify_profile_form(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.go_to_user_page()
+        user_page = UserPage(browser)
+        user_page.verify_profile_form()
+
+    def test_verify_profile_buttons_under_form(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.go_to_user_page()
+        user_page = UserPage(browser)
+        user_page.browser.execute_script("window.scrollBy(0, 100);")
+        user_page.verify_change_pass_button()
+        user_page.verify_edit_profile_button()
+        user_page.verify_delete_profile_button()
+
+    def test_change_passwords(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.go_to_user_page()
+        user_page = UserPage(browser)
+        user_page.press_change_pass_button()
+        change_password_page = ChangePasswordPage(browser)
+        change_password_page.change_password_for_new()
+        user_page = UserPage(browser)
+        user_page.alert_of_change_password()
+        user_page.browser.execute_script("window.scrollBy(0, 100);")
+        user_page.press_change_pass_button()
+        change_password_page = ChangePasswordPage(browser)
+        change_password_page.change_password_for_old()
+        user_page = UserPage(browser)
+        user_page.alert_of_change_password()
+
+
+
+
 

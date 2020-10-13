@@ -1,7 +1,8 @@
 from .base_page import BasePage
+from .checkout_page import CheckoutPage
 from .login_page import LoginPage
 
-from .locators import MainPageLocators
+from .locators import MainPageLocators, CheckoutPageLocators
 from .locators import LoginPageLocators
 
 
@@ -205,6 +206,10 @@ class MainPage(BasePage):
         go_to_basket = self.find(MainPageLocators.basket)
         go_to_basket.click()
 
+    def go_to_user_page(self):
+        user_icon = self.find(MainPageLocators.icon_link)
+        user_icon.click()
+
     def user_in_system(self):
         login = self.find(MainPageLocators.login_page_link)
         login.click()
@@ -215,7 +220,28 @@ class MainPage(BasePage):
         enter_button = self.find(LoginPageLocators.button_login)
         enter_button.click()
 
+    def open_shipping_page_from_main_for_guest(self):
+        main_page = self.find(MainPage.add_to_basket_from_main_page)
+        main_page.click()
+        new_email_checkout = self.find(CheckoutPageLocators.email_field)
+        new_email_checkout.clear()
+        new_email_checkout.send_keys(CheckoutPage.email)
+        new_customer = self.find(CheckoutPageLocators.checkbox1_guest)
+        new_customer.click()
+        new_password = self.find(CheckoutPageLocators.password_field)
+        new_password.send_keys(CheckoutPage.email, CheckoutPage.unique_var)
+        button_continue = self.find(CheckoutPageLocators.button_continue)
+        button_continue.click()
 
-
-
-
+    def open_shipping_page_from_main_for_customers(self):
+        main_page = self.find(MainPage.add_to_basket_from_main_page)
+        main_page.click()
+        new_email_checkout = self.find(CheckoutPageLocators.email_field)
+        new_email_checkout.clear()
+        new_email_checkout.send_keys("user2020@gmail.com")
+        returning_customer = self.find(CheckoutPageLocators.checkbox2_existing)
+        returning_customer.click()
+        new_password = self.find(CheckoutPageLocators.password_field)
+        new_password.send_keys("QRTYvvbbnmYU")
+        button_continue = self.find(CheckoutPageLocators.button_continue)
+        button_continue.click()

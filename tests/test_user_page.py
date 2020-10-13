@@ -5,6 +5,7 @@ from pages.user_page import UserPage
 link = "http://selenium1py.pythonanywhere.com/en-gb/accounts/profile/"
 
 
-def open_user_page(browser):
+def test_open_user_page(browser):
     page = UserPage(browser)
     page.open()
+    page.verify_site_name()

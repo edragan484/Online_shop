@@ -19,6 +19,7 @@ def browser(request):
     print("\nopen browser for test..")
 
     document = webdriver.Chrome(options=options)
+    document.maximize_window()
     document.implicitly_wait(5)
 
     yield document

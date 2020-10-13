@@ -1,6 +1,9 @@
 from .base_page import BasePage
-
+from .main_page import MainPage
+from .checkout_page import CheckoutPage
 from .locators import ShippingAddressPageLocators
+from .locators import MainPageLocators
+from .locators import CheckoutPageLocators
 
 
 class ShippingAddressPage(BasePage):
@@ -9,9 +12,35 @@ class ShippingAddressPage(BasePage):
     def __init__(self, browser):
         BasePage.__init__(self, browser, ShippingAddressPage.page_link)
 
+    def open_shipping_page_from_main_for_guest(self):
+        main_page = self.find(MainPage.add_to_basket_from_main_page)
+        main_page.click()
+        new_email_checkout = self.find(CheckoutPageLocators.email_field)
+        new_email_checkout.clear()
+        new_email_checkout.send_keys(CheckoutPage.email)
+        new_customer = self.find(CheckoutPageLocators.checkbox1_guest)
+        new_customer.click()
+        new_password = self.find(CheckoutPageLocators.password_field)
+        new_password.send_keys(CheckoutPage.email, CheckoutPage.unique_var)
+        button_continue = self.find(CheckoutPageLocators.button_continue)
+        button_continue.click()
+
+    def open_shipping_page_from_main_for_customers(self):
+        main_page = self.find(MainPage.add_to_basket_from_main_page)
+        main_page.click()
+        new_email_checkout = self.find(CheckoutPageLocators.email_field)
+        new_email_checkout.clear()
+        new_email_checkout.send_keys("user2020@gmail.com")
+        returning_customer = self.find(CheckoutPageLocators.checkbox2_existing)
+        returning_customer.click()
+        new_password = self.find(CheckoutPageLocators.password_field)
+        new_password.send_keys("QRTYvvbbnmYU")
+        button_continue = self.find(CheckoutPageLocators.button_continue)
+        button_continue.click()
+
     def verify_name_page(self):
-        page_name = self.find(ShippingAddressPageLocators.page_name)
-        assert page_name == "Shipping address", "'%s' is correct name page"
+        page_name = self.find(ShippingAddressPageLocators.page_name).text
+        assert page_name == "Shipping address", "'%s' is correct name page" % page_name
 
     def verify_new_shipping_form(self):
         shipping_form = self.find(ShippingAddressPageLocators.new_address_form)
@@ -76,6 +105,3 @@ class ShippingAddressPage(BasePage):
     def push_return_to_basket(self):
         return_to_basket = self.find(ShippingAddressPageLocators.return_to_basket_link)
         return_to_basket.click()
-
-
-
