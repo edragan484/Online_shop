@@ -191,9 +191,30 @@ class AllProductsPageLocators:
     programming_link = "Essential programming"
     hacking_link = "Hacking"
     product_text_link = "Coders at Work"
-    product_image_link = ".product_pod img[alt='Coders at Work']"
+    product_image_link = "img[alt='Coders at Work']"
     add_to_button_item = "//body/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/ol[1]/li[3]/article[1]/div[2]/form[1]/button[1]"
     logout_link = "a#logout_link"
+    basket = ".btn-group a.btn.btn-default"
+    account_icon = ".icon-user"
+    logout_button = "a#logout_link"
+    account = "Account"
+    login_button = "a#login_link"
+    language_field = "select[name='language']"
+    language_italian = "[value='it']"
+    language_deutsch = "[value='de']"
+    button_change_language_submit = "button.btn.btn-default[type='submit']"
+    browse_store_button = "a.dropdown-toggle"
+    alert1 = "//body/div[2]/div[1]/div[1]/div[1]/div[2]/div[1]/div[1]"
+    alert2 = "//body/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[1]"
+    alert3 = "//body/div[2]/div[1]/div[1]/div[1]/div[2]/div[3]/div[1]/p[1]"
+    view_basket_from_alert = "View basket"
+    checkout_in_alert = "Checkout now"
+
+
+class AllProductsPage2Locators:
+    name_page = "h1"
+    button_next = ".next a"
+    button_previous = ".previous a"
 
 
 class ClothingPageLocators:
