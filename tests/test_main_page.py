@@ -3,6 +3,7 @@ import time
 import pytest
 
 from pages.change_password_page import ChangePasswordPage
+from pages.delete_profile_page import DeleteProfilePage
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
 from pages.user_page import UserPage
@@ -12,6 +13,7 @@ from pages.shipping_address_page import ShippingAddressPage
 from pages.enter_payment_details_page import EnterPaymentDetailsPage
 from pages.preview_order_page import PreviewOrderPage
 from pages.order_confirmation_page import OrderConfirmationPage
+from pages.user_profile_edit_page import UserProfileEditPage
 
 
 @pytest.mark.regress
@@ -345,6 +347,7 @@ class TestMainPageForRegisteredUser:
         page.verify_checkout_in_alert()
 
 
+@pytest.mark.regress
 class TestUserPageForRegisteredUser:
     def test_go_to_user_page(self, browser):
         page = MainPage(browser)
@@ -412,7 +415,51 @@ class TestUserPageForRegisteredUser:
         user_page = UserPage(browser)
         user_page.alert_of_change_password()
 
+    def test_edit_profile_name(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.go_to_user_page()
+        user_page = UserPage(browser)
+        user_page.press_edit_profile_button()
+        user_profile_edit_page = UserProfileEditPage(browser)
+        user_profile_edit_page.change_name_field()
+        user_profile_edit_page.press_button_save()
+        user_page = UserPage(browser)
+        user_page.alert_of_change_profile()
 
+    def test_cancel_change_password(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.go_to_user_page()
+        user_page = UserPage(browser)
+        user_page.press_change_pass_button()
+        change_password_page = ChangePasswordPage(browser)
+        change_password_page.press_button_cancel()
+        user_page = UserPage(browser)
+        user_page.open()
 
+    def test_cancel_edit_profile_name(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.go_to_user_page()
+        user_page = UserPage(browser)
+        user_page.press_edit_profile_button()
+        user_profile_edit_page = UserProfileEditPage(browser)
+        user_profile_edit_page.press_button_cancel()
+        user_page = UserPage(browser)
+        user_page.open()
 
-
+    def test_cancel_delete_profile(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.user_in_system()
+        page.go_to_user_page()
+        user_page = UserPage(browser)
+        user_page.press_delete_profile_button()
+        delete_profile_page = DeleteProfilePage(browser)
+        delete_profile_page.cancel_delete_profile_link()
+        user_page = UserPage(browser)
+        user_page.open()

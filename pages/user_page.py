@@ -77,3 +77,11 @@ class UserPage(BasePage):
         alert = self.find(UserPageLocators.alert_of_change_pass).text
         assert alert == "Password updated", "'%s' is correct" % alert
 
+    def edit_profile(self):
+        edit_profile = self.find(UserPageLocators.edit_profile_button)
+        edit_profile.click()
+
+    def alert_of_change_profile(self):
+        alert = self.find(UserPageLocators.alert_of_change_pass).text
+        assert alert == "Profile updated", "'%s' is correct" % alert
+

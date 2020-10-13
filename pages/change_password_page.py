@@ -31,3 +31,7 @@ class ChangePasswordPage(BasePage):
         new_pass_confirm.send_keys("QRTYvvbbnmYU")
         save = self.find(ChangePasswordPageLocators.save_button)
         save.click()
+
+    def press_button_cancel(self):
+        cancel = self.find_by_link_text(ChangePasswordPageLocators.cancel)
+        cancel.click()

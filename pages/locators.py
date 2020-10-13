@@ -255,3 +255,14 @@ class ChangePasswordPageLocators:
     new_password_field = "input[name='new_password1']"
     new_password_confirm = "input[name='new_password2']"
     save_button = "button.btn.btn-lg[type='submit']"
+    cancel = "cancel"
+
+
+class UserProfileEditPageLocators:
+    name_field_for_change = "input[name='first_name']"
+    save_button = "button.btn.btn-lg[type='submit']"
+    cancel = "cancel"
+
+
+class DeleteProfilePageLocators:
+    cancel = "cancel"
