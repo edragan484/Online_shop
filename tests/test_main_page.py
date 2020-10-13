@@ -17,7 +17,7 @@ from pages.user_profile_edit_page import UserProfileEditPage
 
 
 @pytest.mark.regress
-class TestMainPageForGuests:
+class TestMainPageForGuest:
     product_name1 = "Coders at Work"
     product_name2 = "The City and the Stars"
     menu_deutsch = "Im Webshop stöbern"
@@ -48,14 +48,14 @@ class TestMainPageForGuests:
         page.verify_menu_and_basket_text_in_it()
         page.change_language_to_deutsch()
         page.verify_menu_and_basket_text_in_deutsch()
-        page.verify_another_method_deutsch(TestMainPageForGuests.menu_deutsch, TestMainPageForGuests.basket_deutsch)
+        page.verify_another_method_deutsch(TestMainPageForGuest.menu_deutsch, TestMainPageForGuest.basket_deutsch)
 
     def test_verify_search_item(self, browser):
         page = MainPage(browser)
         page.open()
-        page.searching_item(TestMainPageForGuests.product_name1)
-        page.verify_search_items_is_correct(TestMainPageForGuests.product_name1)
-        page.verify_image_found_item_is_correct(TestMainPageForGuests.product_name1)
+        page.searching_item(TestMainPageForGuest.product_name1)
+        page.verify_search_items_is_correct(TestMainPageForGuest.product_name1)
+        page.verify_image_found_item_is_correct(TestMainPageForGuest.product_name1)
 
     def test_verify_welcome_block(self, browser):
         page = MainPage(browser)
@@ -159,6 +159,8 @@ class TestMainPageForGuests:
 
 @pytest.mark.e2e
 class TestMainPageForGuest:
+
+    # buy book, from main page, fill all fields in shipping
     def test_buy_product_from_main_page(self, browser):
         page = MainPage(browser)
         page.open()
@@ -180,14 +182,49 @@ class TestMainPageForGuest:
         checkout_page.button_continue()
         shipping_address_page = ShippingAddressPage(browser)
         shipping_address_page.open()
-        shipping_address_page.fill_shipping_title()
-        shipping_address_page.fill_first_name()
-        shipping_address_page.fill_last_name()
-        shipping_address_page.fill_address1()
-        shipping_address_page.fill_city()
-        shipping_address_page.fill_zip()
-        shipping_address_page.fill_country()
-        shipping_address_page.push_button_continue()
+        shipping_address_page.fill_all_fields_in_shipping_form()
+        enter_payment_details_page = EnterPaymentDetailsPage(browser)
+        enter_payment_details_page.open()
+        enter_payment_details_page.verify_name_page()
+        enter_payment_details_page.push_button_continue()
+        preview_order_page = PreviewOrderPage(browser)
+        preview_order_page.open()
+        preview_order_page.verify_name_page()
+        preview_order_page.verify_address_review()
+        preview_order_page.verify_payment_review()
+        preview_order_page.verify_basket_items_review()
+        preview_order_page.push_place_order_button()
+        order_confirmation_page = OrderConfirmationPage(browser)
+        order_confirmation_page.open()
+        order_confirmation_page.verify_name_page()
+        order_confirmation_page.verify_address_review()
+        order_confirmation_page.verify_basket_items_review()
+        order_confirmation_page.verify_button_print_page()
+        order_confirmation_page.verify_continue_shopping()
+
+    # buy book, from main page, fill just required fields in shipping
+    def test_buy_product_from_main_page_2(self, browser):
+        page = MainPage(browser)
+        page.open()
+        page.add_to_basket_from_main_page()
+        page.press_basket_button()
+        basket_page = BasketPage(browser)
+        basket_page.open()
+        basket_page.verify_page_name()
+        basket_page.verify_items_in_basket()
+        basket_page.verify_price_of_item()
+        basket_page.verify_shipping_free()
+        basket_page.verify_price_the_city_and_the_stars()
+        basket_page.press_proceed_to_checkout_button()
+        checkout_page = CheckoutPage(browser)
+        checkout_page.open()
+        checkout_page.fill_email_in_checkout_guest()
+        checkout_page.new_customer_button_checked()
+        checkout_page.fill_password_guest()
+        checkout_page.button_continue()
+        shipping_address_page = ShippingAddressPage(browser)
+        shipping_address_page.open()
+        shipping_address_page.fill_required_fields_in_shipping_form()
         enter_payment_details_page = EnterPaymentDetailsPage(browser)
         enter_payment_details_page.open()
         enter_payment_details_page.verify_name_page()

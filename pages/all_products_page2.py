@@ -11,8 +11,8 @@ class AllProductsPage2(BasePage):
         BasePage.__init__(self, browser, AllProductsPage2.page_link)
 
     def verify_page_name(self):
-        page_name = self.find(AllProductsPage2Locators.name_page)
-        assert page_name == "All Products", "'%s' is correct name name" % page_name
+        page_name = self.find(AllProductsPage2Locators.name_page).text
+        assert page_name == "All products", "'%s' is correct name name" % page_name
 
     def verify_next_page(self):
         next_button = self.find(AllProductsPage2Locators.button_next).text
@@ -25,4 +25,5 @@ class AllProductsPage2(BasePage):
     def press_previous_button(self):
         previous_button = self.find(AllProductsPage2Locators.button_previous)
         previous_button.click()
+
 
