@@ -6,14 +6,14 @@ from pages.change_password_page import ChangePasswordPage
 from pages.delete_profile_page import DeleteProfilePage
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
-from pages.user_page import UserPage
+from pages.account_page import AccountPage
 from pages.basket_page import BasketPage
 from pages.checkout_page import CheckoutPage
 from pages.shipping_address_page import ShippingAddressPage
 from pages.enter_payment_details_page import EnterPaymentDetailsPage
 from pages.preview_order_page import PreviewOrderPage
 from pages.order_confirmation_page import OrderConfirmationPage
-from pages.user_profile_edit_page import UserProfileEditPage
+from pages.account_profile_edit_page import AccountProfileEditPage
 
 
 @pytest.mark.regress
@@ -183,17 +183,18 @@ class TestMainPageForGuest:
         shipping_address_page = ShippingAddressPage(browser)
         shipping_address_page.open()
         shipping_address_page.fill_all_fields_in_shipping_form()
+        shipping_address_page.press_continue_button()
         enter_payment_details_page = EnterPaymentDetailsPage(browser)
         enter_payment_details_page.open()
         enter_payment_details_page.verify_name_page()
-        enter_payment_details_page.push_button_continue()
+        enter_payment_details_page.press_button_continue()
         preview_order_page = PreviewOrderPage(browser)
         preview_order_page.open()
         preview_order_page.verify_name_page()
         preview_order_page.verify_address_review()
         preview_order_page.verify_payment_review()
         preview_order_page.verify_basket_items_review()
-        preview_order_page.push_place_order_button()
+        preview_order_page.press_place_order_button()
         order_confirmation_page = OrderConfirmationPage(browser)
         order_confirmation_page.open()
         order_confirmation_page.verify_name_page()
@@ -225,17 +226,18 @@ class TestMainPageForGuest:
         shipping_address_page = ShippingAddressPage(browser)
         shipping_address_page.open()
         shipping_address_page.fill_required_fields_in_shipping_form()
+        shipping_address_page.press_continue_button()
         enter_payment_details_page = EnterPaymentDetailsPage(browser)
         enter_payment_details_page.open()
         enter_payment_details_page.verify_name_page()
-        enter_payment_details_page.push_button_continue()
+        enter_payment_details_page.press_button_continue()
         preview_order_page = PreviewOrderPage(browser)
         preview_order_page.open()
         preview_order_page.verify_name_page()
         preview_order_page.verify_address_review()
         preview_order_page.verify_payment_review()
         preview_order_page.verify_basket_items_review()
-        preview_order_page.push_place_order_button()
+        preview_order_page.press_place_order_button()
         order_confirmation_page = OrderConfirmationPage(browser)
         order_confirmation_page.open()
         order_confirmation_page.verify_name_page()
@@ -354,7 +356,7 @@ class TestMainPageForRegisteredUser:
         page.verify_alert_basket_total()
         page.go_to_checkout_from_alert()
 
-    def test_verify_page_constructor(self, browser):
+    def test_verify_page_structure(self, browser):
         page = MainPage(browser)
         page.open()
         page.user_in_system()
@@ -385,118 +387,118 @@ class TestMainPageForRegisteredUser:
 
 
 @pytest.mark.regress
-class TestUserPageForRegisteredUser:
-    def test_go_to_user_page(self, browser):
+class TestAccountPageForRegisteredUser:
+    def test_go_to_account_page(self, browser):
         page = MainPage(browser)
         page.open()
         page.user_in_system()
-        page.go_to_user_page()
+        page.go_to_account_page()
 
     def test_verify_name_page(self, browser):
         page = MainPage(browser)
         page.open()
         page.user_in_system()
-        page.go_to_user_page()
-        user_page = UserPage(browser)
-        user_page.verify_page_name()
+        page.go_to_account_page()
+        account_page = AccountPage(browser)
+        account_page.verify_page_name()
 
     def test_verify_menu_links(self, browser):
         page = MainPage(browser)
         page.open()
         page.user_in_system()
-        page.go_to_user_page()
-        user_page = UserPage(browser)
-        user_page.verify_menu_profile_link()
-        user_page.verify_menu_order_history()
-        user_page.verify_menu_address_book()
-        user_page.verify_menu_address_book()
-        user_page.verify_menu_email_history()
-        user_page.verify_menu_product_alerts()
-        user_page.verify_menu_notifications()
-        user_page.verify_menu_wish_lists()
+        page.go_to_account_page()
+        account_page = AccountPage(browser)
+        account_page.verify_menu_profile_link()
+        account_page.verify_menu_order_history()
+        account_page.verify_menu_address_book()
+        account_page.verify_menu_address_book()
+        account_page.verify_menu_email_history()
+        account_page.verify_menu_product_alerts()
+        account_page.verify_menu_notifications()
+        account_page.verify_menu_wish_lists()
 
     def test_verify_profile_form(self, browser):
         page = MainPage(browser)
         page.open()
         page.user_in_system()
-        page.go_to_user_page()
-        user_page = UserPage(browser)
-        user_page.verify_profile_form()
+        page.go_to_account_page()
+        account_page = AccountPage(browser)
+        account_page.verify_profile_form()
 
     def test_verify_profile_buttons_under_form(self, browser):
         page = MainPage(browser)
         page.open()
         page.user_in_system()
-        page.go_to_user_page()
-        user_page = UserPage(browser)
-        user_page.browser.execute_script("window.scrollBy(0, 100);")
-        user_page.verify_change_pass_button()
-        user_page.verify_edit_profile_button()
-        user_page.verify_delete_profile_button()
+        page.go_to_account_page()
+        account_page = AccountPage(browser)
+        account_page.browser.execute_script("window.scrollBy(0, 100);")
+        account_page.verify_change_pass_button()
+        account_page.verify_edit_profile_button()
+        account_page.verify_delete_profile_button()
 
     def test_change_passwords(self, browser):
         page = MainPage(browser)
         page.open()
         page.user_in_system()
-        page.go_to_user_page()
-        user_page = UserPage(browser)
-        user_page.press_change_pass_button()
+        page.go_to_account_page()
+        account_page = AccountPage(browser)
+        account_page.press_change_pass_button()
         change_password_page = ChangePasswordPage(browser)
         change_password_page.change_password_for_new()
-        user_page = UserPage(browser)
-        user_page.alert_of_change_password()
-        user_page.browser.execute_script("window.scrollBy(0, 100);")
-        user_page.press_change_pass_button()
+        account_page = AccountPage(browser)
+        account_page.alert_of_change_password()
+        account_page.browser.execute_script("window.scrollBy(0, 100);")
+        account_page.press_change_pass_button()
         change_password_page = ChangePasswordPage(browser)
         change_password_page.change_password_for_old()
-        user_page = UserPage(browser)
-        user_page.alert_of_change_password()
+        account_page = AccountPage(browser)
+        account_page.alert_of_change_password()
 
     def test_edit_profile_name(self, browser):
         page = MainPage(browser)
         page.open()
         page.user_in_system()
-        page.go_to_user_page()
-        user_page = UserPage(browser)
-        user_page.press_edit_profile_button()
-        user_profile_edit_page = UserProfileEditPage(browser)
+        page.go_to_account_page()
+        account_page = AccountPage(browser)
+        account_page.press_edit_profile_button()
+        user_profile_edit_page = AccountProfileEditPage(browser)
         user_profile_edit_page.change_name_field()
         user_profile_edit_page.press_button_save()
-        user_page = UserPage(browser)
-        user_page.alert_of_change_profile()
+        account_page = AccountPage(browser)
+        account_page.alert_of_change_profile()
 
     def test_cancel_change_password(self, browser):
         page = MainPage(browser)
         page.open()
         page.user_in_system()
-        page.go_to_user_page()
-        user_page = UserPage(browser)
-        user_page.press_change_pass_button()
+        page.go_to_account_page()
+        account_page = AccountPage(browser)
+        account_page.press_change_pass_button()
         change_password_page = ChangePasswordPage(browser)
         change_password_page.press_button_cancel()
-        user_page = UserPage(browser)
-        user_page.open()
+        account_page = AccountPage(browser)
+        account_page.open()
 
     def test_cancel_edit_profile_name(self, browser):
         page = MainPage(browser)
         page.open()
         page.user_in_system()
-        page.go_to_user_page()
-        user_page = UserPage(browser)
-        user_page.press_edit_profile_button()
-        user_profile_edit_page = UserProfileEditPage(browser)
+        page.go_to_account_page()
+        account_page = AccountPage(browser)
+        account_page.press_edit_profile_button()
+        user_profile_edit_page = AccountProfileEditPage(browser)
         user_profile_edit_page.press_button_cancel()
-        user_page = UserPage(browser)
-        user_page.open()
+        account_page = AccountPage(browser)
+        account_page.open()
 
     def test_cancel_delete_profile(self, browser):
         page = MainPage(browser)
         page.open()
         page.user_in_system()
-        page.go_to_user_page()
-        user_page = UserPage(browser)
-        user_page.press_delete_profile_button()
+        page.go_to_account_page()
+        account_page = AccountPage(browser)
+        account_page.press_delete_profile_button()
         delete_profile_page = DeleteProfilePage(browser)
         delete_profile_page.cancel_delete_profile_link()
-        user_page = UserPage(browser)
-        user_page.open()
+        account_page = AccountPage(browser)
+        account_page.open()

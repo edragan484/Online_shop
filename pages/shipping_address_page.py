@@ -75,8 +75,6 @@ class ShippingAddressPage(BasePage):
         phone_number.send_keys("+14068049090")
         instructions = self.find(ShippingAddressPageLocators.textarea_field)
         instructions.send_keys("Hello, Oscar!")
-        continue_button = self.find(ShippingAddressPageLocators.button_continue)
-        continue_button.click()
 
     def fill_required_fields_in_shipping_form(self):
         first_name = self.find(ShippingAddressPageLocators.first_name_field)
@@ -93,9 +91,16 @@ class ShippingAddressPage(BasePage):
         country_tag.click()
         country_value = self.find(ShippingAddressPageLocators.country_value)
         country_value.click()
+
+    def press_continue_button(self):
         continue_button = self.find(ShippingAddressPageLocators.button_continue)
         continue_button.click()
 
     def push_return_to_basket(self):
         return_to_basket = self.find(ShippingAddressPageLocators.return_to_basket_link)
         return_to_basket.click()
+
+    def press_button_ship_to_this_address(self):
+        address = self.find(ShippingAddressPageLocators.old_shipping_address)
+        address.click()
+

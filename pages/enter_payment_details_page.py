@@ -13,7 +13,7 @@ class EnterPaymentDetailsPage(BasePage):
         name_page = self.find(EnterPaymentDetailsPageLocators.page_name).text
         assert "Enter payment details" in name_page, "Name page '%s' name is correct" % name_page
 
-    def push_button_continue(self):
+    def press_button_continue(self):
         continue_button = self.find(EnterPaymentDetailsPageLocators.button_continue)
         continue_button.click()
 

@@ -206,7 +206,7 @@ class MainPage(BasePage):
         go_to_basket = self.find(MainPageLocators.basket)
         go_to_basket.click()
 
-    def go_to_user_page(self):
+    def go_to_account_page(self):
         user_icon = self.find(MainPageLocators.icon_link)
         user_icon.click()
 

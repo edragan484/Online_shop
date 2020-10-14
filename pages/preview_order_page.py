@@ -25,6 +25,6 @@ class PreviewOrderPage(BasePage):
         basket_items = self.find(PreviewOrderPageLocators.basket_items_review)
         assert basket_items is not None, "Basket items are presented in form"
 
-    def push_place_order_button(self):
+    def press_place_order_button(self):
         order_button = self.find(PreviewOrderPageLocators.button_place_order)
         order_button.click()

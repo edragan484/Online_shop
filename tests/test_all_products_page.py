@@ -2,9 +2,15 @@ import time
 import pytest
 
 from pages.all_products_page2 import AllProductsPage2
+from pages.basket_page import BasketPage
+from pages.checkout_page import CheckoutPage
+from pages.enter_payment_details_page import EnterPaymentDetailsPage
 from pages.main_page import MainPage
 from pages.login_page import LoginPage
 from pages.all_products_page import AllProductsPage
+from pages.order_confirmation_page import OrderConfirmationPage
+from pages.preview_order_page import PreviewOrderPage
+from pages.shipping_address_page import ShippingAddressPage
 
 
 @pytest.mark.regress
@@ -111,6 +117,113 @@ class TestAllProductsPageForGuest:
         page.open()
         page.add_to_basket_button()
         page.press_checkout_from_alert()
+
+
+@pytest.mark.e2e
+class TestAllProductsPageForGuest2:
+    product_item1 = "Coders at Work"
+    menu_it = "Naviga nel negozio"
+    basket_it = "Visualizza carrello"
+
+    # buy book from all products page, fill all fields in shipping form
+    def test_guest_buy_product(self, browser):
+        page = AllProductsPage(browser)
+        page.open()
+        page.add_to_basket_button()
+        page.verify_alert1_of_add_to_basket()
+        page.verify_alert2_of_add_to_basket()
+        page.verify_alert3_of_add_to_basket()
+        page.press_view_basket_from_alert()
+        basket_page = BasketPage(browser)
+        basket_page.verify_page_name()
+        basket_page.verify_items_in_basket()
+        basket_page.verify_price_of_item()
+        basket_page.press_proceed_to_checkout_button()
+        checkout_page = CheckoutPage(browser)
+        checkout_page.fill_email_in_checkout_guest()
+        checkout_page.new_customer_button_checked()
+        checkout_page.fill_password_guest()
+        checkout_page.button_continue()
+        shipping_page = ShippingAddressPage(browser)
+        shipping_page.fill_all_fields_in_shipping_form()
+        shipping_page.press_continue_button()
+        payment_page = EnterPaymentDetailsPage(browser)
+        payment_page.press_button_continue()
+        preview_page = PreviewOrderPage(browser)
+        preview_page.verify_address_review()
+        preview_page.verify_payment_review()
+        preview_page.verify_basket_items_review()
+        preview_page.press_place_order_button()
+        confirmation_page = OrderConfirmationPage(browser)
+        confirmation_page.verify_name_page()
+        confirmation_page.verify_address_review()
+        confirmation_page.verify_basket_items_review()
+        confirmation_page.verify_button_print_page()
+
+    #  buy book from all products page, fill required fields in shipping form
+    def test_guest_buy_product2(self, browser):
+        page = AllProductsPage(browser)
+        page.open()
+        page.add_to_basket_button()
+        page.verify_alert1_of_add_to_basket()
+        page.verify_alert2_of_add_to_basket()
+        page.verify_alert3_of_add_to_basket()
+        page.press_view_basket_from_alert()
+        basket_page = BasketPage(browser)
+        basket_page.verify_page_name()
+        basket_page.verify_items_in_basket()
+        basket_page.verify_price_of_item()
+        basket_page.press_proceed_to_checkout_button()
+        checkout_page = CheckoutPage(browser)
+        checkout_page.fill_email_in_checkout_guest()
+        checkout_page.new_customer_button_checked()
+        checkout_page.fill_password_guest()
+        checkout_page.button_continue()
+        shipping_page = ShippingAddressPage(browser)
+        shipping_page.fill_required_fields_in_shipping_form()
+        shipping_page.press_continue_button()
+        payment_page = EnterPaymentDetailsPage(browser)
+        payment_page.press_button_continue()
+        preview_page = PreviewOrderPage(browser)
+        preview_page.verify_address_review()
+        preview_page.verify_payment_review()
+        preview_page.verify_basket_items_review()
+        preview_page.press_place_order_button()
+        confirmation_page = OrderConfirmationPage(browser)
+        confirmation_page.verify_name_page()
+        confirmation_page.verify_address_review()
+        confirmation_page.verify_basket_items_review()
+        confirmation_page.verify_button_print_page()
+
+    # buy book from all products page, press checkout, fill required fields in shipping form
+    def test_guest_buy_product3(self, browser):
+        page = AllProductsPage(browser)
+        page.open()
+        page.add_to_basket_button()
+        page.verify_alert1_of_add_to_basket()
+        page.verify_alert2_of_add_to_basket()
+        page.verify_alert3_of_add_to_basket()
+        page.press_checkout_from_alert()
+        checkout_page = CheckoutPage(browser)
+        checkout_page.fill_email_in_checkout_guest()
+        checkout_page.new_customer_button_checked()
+        checkout_page.fill_password_guest()
+        checkout_page.button_continue()
+        shipping_page = ShippingAddressPage(browser)
+        shipping_page.fill_required_fields_in_shipping_form()
+        shipping_page.press_continue_button()
+        payment_page = EnterPaymentDetailsPage(browser)
+        payment_page.press_button_continue()
+        preview_page = PreviewOrderPage(browser)
+        preview_page.verify_address_review()
+        preview_page.verify_payment_review()
+        preview_page.verify_basket_items_review()
+        preview_page.press_place_order_button()
+        confirmation_page = OrderConfirmationPage(browser)
+        confirmation_page.verify_name_page()
+        confirmation_page.verify_address_review()
+        confirmation_page.verify_basket_items_review()
+        confirmation_page.verify_button_print_page()
 
 
 @pytest.mark.regress
@@ -245,3 +358,81 @@ class TestAllProductsPageForRegisteredUser:
         page.user_in_system()
         page.add_to_basket_button()
         page.press_checkout_from_alert()
+
+
+@pytest.mark.e2e
+class TestAllProductsPageForRegisteredUser2:
+    product_item1 = "Coders at Work"
+    menu_it = "Naviga nel negozio"
+    basket_it = "Visualizza carrello"
+
+    # buy book from all products page, fill all fields in shipping form
+    def test_guest_buy_product(self, browser):
+        page = AllProductsPage(browser)
+        page.open()
+        page.user_in_system()
+        page.add_to_basket_button()
+        page.verify_alert1_of_add_to_basket()
+        page.verify_alert2_of_add_to_basket()
+        page.verify_alert3_of_add_to_basket()
+        page.press_view_basket_from_alert()
+        basket_page = BasketPage(browser)
+        basket_page.verify_page_name()
+        basket_page.verify_items_in_basket()
+        basket_page.verify_price_of_item()
+        basket_page.press_proceed_to_checkout_button()
+        checkout_page = CheckoutPage(browser)
+        checkout_page.fill_email_in_checkout_guest()
+        checkout_page.new_customer_button_checked()
+        checkout_page.fill_password_guest()
+        checkout_page.button_continue()
+        shipping_page = ShippingAddressPage(browser)
+        shipping_page.fill_all_fields_in_shipping_form()
+        shipping_page.press_continue_button()
+        payment_page = EnterPaymentDetailsPage(browser)
+        payment_page.press_button_continue()
+        preview_page = PreviewOrderPage(browser)
+        preview_page.verify_address_review()
+        preview_page.verify_payment_review()
+        preview_page.verify_basket_items_review()
+        preview_page.press_place_order_button()
+        confirmation_page = OrderConfirmationPage(browser)
+        confirmation_page.verify_name_page()
+        confirmation_page.verify_address_review()
+        confirmation_page.verify_basket_items_review()
+        confirmation_page.verify_button_print_page()
+
+    #  buy book from all products page, fill required fields in shipping form
+    def test_guest_buy_product2(self, browser):
+        page = AllProductsPage(browser)
+        page.open()
+        page.add_to_basket_button()
+        page.verify_alert1_of_add_to_basket()
+        page.verify_alert2_of_add_to_basket()
+        page.verify_alert3_of_add_to_basket()
+        page.press_view_basket_from_alert()
+        basket_page = BasketPage(browser)
+        basket_page.verify_page_name()
+        basket_page.verify_items_in_basket()
+        basket_page.verify_price_of_item()
+        basket_page.press_proceed_to_checkout_button()
+        checkout_page = CheckoutPage(browser)
+        checkout_page.fill_email_in_checkout_guest()
+        checkout_page.new_customer_button_checked()
+        checkout_page.fill_password_guest()
+        checkout_page.button_continue()
+        shipping_page = ShippingAddressPage(browser)
+        shipping_page.fill_required_fields_in_shipping_form()
+        shipping_page.press_continue_button()
+        payment_page = EnterPaymentDetailsPage(browser)
+        payment_page.press_button_continue()
+        preview_page = PreviewOrderPage(browser)
+        preview_page.verify_address_review()
+        preview_page.verify_payment_review()
+        preview_page.verify_basket_items_review()
+        preview_page.press_place_order_button()
+        confirmation_page = OrderConfirmationPage(browser)
+        confirmation_page.verify_name_page()
+        confirmation_page.verify_address_review()
+        confirmation_page.verify_basket_items_review()
+        confirmation_page.verify_button_print_page()

@@ -59,7 +59,7 @@ class LoginPageLocators:
     logout_link = "a#logout_link"
 
 
-class UserPageLocators:
+class AccountPageLocators:
     name_page = "h1"
     registration_alert = "div#messages"
     link_to_account = "a i.icon-user"
@@ -141,6 +141,7 @@ class ShippingAddressPageLocators:
     return_to_basket_link = ".col-sm-offset-4.col-sm-8 a"
     choose_address_button = "button[type='submit'].btn.ship-address"
     logout_link = "a#logout_link"
+    old_shipping_address = "button.btn.btn-primary.btn-large.ship-address"
 
 
 class EnterPaymentDetailsPageLocators:
@@ -167,6 +168,7 @@ class OrderConfirmationPageLocators:
     addition_page = "print-preview-app"
     print_button_addition_page = "cr-button.action-button"
     logout_link = "a#logout_link"
+    cancel_button = "cr-button.cancel-button"
 
 
 class RegisterFromCheckoutPageLocators:
@@ -279,7 +281,7 @@ class ChangePasswordPageLocators:
     cancel = "cancel"
 
 
-class UserProfileEditPageLocators:
+class AccountProfileEditPageLocators:
     name_field_for_change = "input[name='first_name']"
     save_button = "button.btn.btn-lg[type='submit']"
     cancel = "cancel"

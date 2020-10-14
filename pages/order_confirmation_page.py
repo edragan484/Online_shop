@@ -26,21 +26,25 @@ class OrderConfirmationPage(BasePage):
         button_print_page = self.find(OrderConfirmationPageLocators.button_print_this_page).text
         assert button_print_page == "Print this page", "Button '%s' is on page"
 
-    def push_button_print_page(self):
+    def press_button_print_page(self):
         button_print = self.find(OrderConfirmationPageLocators.button_print_this_page)
         button_print.click()
 
     def verify_print_page(self):
         addition_page = self.find(OrderConfirmationPageLocators.addition_page)
         assert addition_page is not None, "Addition page is open"
-        print_button_add_page = self.find(OrderConfirmationPageLocators.print_button_addition_page)
-        assert print_button_add_page is not None, "Addition print on page"
+        #print_button_add_page = self.find(OrderConfirmationPageLocators.print_button_addition_page)
+        #assert print_button_add_page is not None, "Addition print on page"
+
+    def press_cancel_button(self):
+        cancel = self.find(OrderConfirmationPageLocators.cancel_button)
+        cancel.click()
 
     def verify_continue_shopping(self):
         continue_shopping_button = self.find(OrderConfirmationPageLocators.button_continue_shopping).text
         assert continue_shopping_button == "Continue shopping"
 
-    def push_continue_shopping(self):
+    def press_continue_shopping(self):
         continue_shopping_button = self.find(OrderConfirmationPageLocators.button_continue_shopping)
         continue_shopping_button.ckick()
 
