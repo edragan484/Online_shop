@@ -195,11 +195,11 @@ class MainPage(BasePage):
         checkout_alert.click()
 
     def go_to_product_page_from_product_name_link(self):
-        product_page_link = self.find(MainPageLocators.item_name_link)
+        product_page_link = self.find(MainPageLocators.item_name_link1)
         product_page_link.click()
 
     def go_to_product_page_from_product_name_image(self):
-        product_page_image = self.find(MainPageLocators.item_name_image)
+        product_page_image = self.find(MainPageLocators.item_name_image1)
         product_page_image.click()
 
     def go_to_basket_page(self):

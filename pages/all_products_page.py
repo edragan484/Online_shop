@@ -103,11 +103,11 @@ class AllProductsPage(BasePage):
         assert basket_it == basket_button.text, "Translate is correct"
 
     def verify_item_link(self, product_item1):
-        item = self.find_by_link_text(AllProductsPage.product_item1).text
+        item = self.find_by_link_text(AllProductsPageLocators.product_text_link).text
         assert item == product_item1, "'%s' is correct name" % item
 
     def press_item_link(self):
-        item = self.find_by_link_text(AllProductsPage.product_item1)
+        item = self.find_by_link_text(AllProductsPageLocators.product_text_link)
         item.click()
 
     def press_item_image(self):

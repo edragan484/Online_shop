@@ -10,6 +10,7 @@ from pages.login_page import LoginPage
 from pages.all_products_page import AllProductsPage
 from pages.order_confirmation_page import OrderConfirmationPage
 from pages.preview_order_page import PreviewOrderPage
+from pages.product2_page import Product2Page
 from pages.shipping_address_page import ShippingAddressPage
 
 
@@ -275,7 +276,7 @@ class TestAllProductsPageForRegisteredUser:
     def test_press_item_image(self, browser):
         page = AllProductsPage(browser)
         page.open()
-        page.user_in_system()
+        #page.user_in_system()
         page.browser.execute_script("window.scrollBy(0, 200);")
         page.press_item_image()
 
@@ -406,6 +407,7 @@ class TestAllProductsPageForRegisteredUser2:
     def test_guest_buy_product2(self, browser):
         page = AllProductsPage(browser)
         page.open()
+        page.user_in_system()
         page.add_to_basket_button()
         page.verify_alert1_of_add_to_basket()
         page.verify_alert2_of_add_to_basket()

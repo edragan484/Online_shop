@@ -37,9 +37,11 @@ class MainPageLocators:
     alert3_of_add = "div.alert.alert-info"
     view_basket_in_alert = "div.alertinner p a:nth-child(1)"
     checkout_now_in_alert = "div.alertinner p a:nth-child(2)"
-    item_name_link = "a[title='Coders at Work']"
-    item_name_image = "a img[alt='The City and the Stars']"
-    icon_link = ".icon-user"
+    item_name_link1 = "a[title='The City and the Stars']"
+    item_name_link2 = "a[title='Coders at Work']"
+    item_name_image1 = "a img[alt='The City and the Stars']"
+    item_name_image2 = "a img[alt='Coders at Work']"
+    icon_link = "i.icon-user"
     logout_link = "a#logout_link"
 
 
@@ -193,7 +195,7 @@ class AllProductsPageLocators:
     programming_link = "Essential programming"
     hacking_link = "Hacking"
     product_text_link = "Coders at Work"
-    product_image_link = "img[alt='Coders at Work']"
+    product_image_link = "a img[alt='Coders at Work']"
     add_to_button_item = "//body/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/ol[1]/li[3]/article[1]/div[2]/form[1]/button[1]"
     logout_link = "a#logout_link"
     basket = ".btn-group a.btn.btn-default"
@@ -289,3 +291,7 @@ class AccountProfileEditPageLocators:
 
 class DeleteProfilePageLocators:
     cancel = "cancel"
+
+
+class Product2PageLocators:
+    name_page = "h1"

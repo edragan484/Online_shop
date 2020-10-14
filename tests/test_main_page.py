@@ -1,7 +1,5 @@
 import time
-
 import pytest
-
 from pages.change_password_page import ChangePasswordPage
 from pages.delete_profile_page import DeleteProfilePage
 from pages.main_page import MainPage
@@ -158,7 +156,7 @@ class TestMainPageForGuest:
 
 
 @pytest.mark.e2e
-class TestMainPageForGuest:
+class TestMainPageForGuest2:
 
     # buy book, from main page, fill all fields in shipping
     def test_buy_product_from_main_page(self, browser):
@@ -393,6 +391,8 @@ class TestAccountPageForRegisteredUser:
         page.open()
         page.user_in_system()
         page.go_to_account_page()
+        account_page = AccountPage(browser)
+        account_page.open()
 
     def test_verify_name_page(self, browser):
         page = MainPage(browser)
@@ -502,3 +502,4 @@ class TestAccountPageForRegisteredUser:
         delete_profile_page.cancel_delete_profile_link()
         account_page = AccountPage(browser)
         account_page.open()
+
