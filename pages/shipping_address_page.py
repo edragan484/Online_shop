@@ -96,7 +96,7 @@ class ShippingAddressPage(BasePage):
         continue_button = self.find(ShippingAddressPageLocators.button_continue)
         continue_button.click()
 
-    def push_return_to_basket(self):
+    def press_return_to_basket(self):
         return_to_basket = self.find(ShippingAddressPageLocators.return_to_basket_link)
         return_to_basket.click()
 

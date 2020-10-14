@@ -89,6 +89,19 @@ class ProductPageLocators:
     alert_of_add_product = "div.alert.alert-safe.alert-noicon:nth-child(1)"
     name_in_alert_add_product = "div.alert.alert-safe.alert-noicon:nth-child(1) strong"
     logout_link = "a#logout_link"
+    basket = "span.btn-group a"
+
+
+class Product2PageLocators:
+    name_page = "h1"
+    button_add = "button[type='submit'].btn.btn-lg.btn-primary.btn-add-to-basket"
+    product_image = "div.carousel-inner img"
+    product_price = ".col-sm-6.product_main p.price_color"
+    review_button = "a#write_review"
+    alert_of_add_product = "div.alert.alert-safe.alert-noicon:nth-child(1)"
+    name_in_alert_add_product = "div.alert.alert-safe.alert-noicon:nth-child(1) strong"
+    logout_link = "a#logout_link"
+    basket = "span.btn-group a"
 
 
 class PasswordResetPageLocators:
@@ -291,7 +304,3 @@ class AccountProfileEditPageLocators:
 
 class DeleteProfilePageLocators:
     cancel = "cancel"
-
-
-class Product2PageLocators:
-    name_page = "h1"

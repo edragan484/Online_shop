@@ -37,10 +37,8 @@ class ProductPage(BasePage):
         button_add_to_basket.click()
 
     def verify_alert_of_add_product(self):
-        button_add_to_basket = self.find(ProductPageLocators.button_add)
-        button_add_to_basket.click()
         alert_of_add_product = self.find(ProductPageLocators.alert_of_add_product).text
-        assert alert_of_add_product == ProductPage.product_name + "has been added to your basket.", \
+        assert "has been added to your basket." in alert_of_add_product, \
             "'%s'has been added to your basket." % ProductPage.product_name
 
     def check_alert_of_add_on_product_page(self):
@@ -49,4 +47,7 @@ class ProductPage(BasePage):
         alert_of_add_product = self.browser.find_element(ProductPageLocators.alert_of_add_product)
         assert ProductPage.product_name in alert_of_add_product, \
             "'%s' has been added to your basket." % ProductPage.product_name
-        
+
+    def press_basket_button(self):
+        basket = self.find(ProductPageLocators.basket)
+        basket.click()
