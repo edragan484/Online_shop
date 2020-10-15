@@ -1,5 +1,3 @@
-from selenium.common.exceptions import NoSuchElementException
-
 
 class BasePage:
     def __init__(self, browser, url, timeout=10):
@@ -13,12 +11,20 @@ class BasePage:
     def find(self, locator):
         return self.browser.find_element_by_css_selector(locator)
 
+    def find_by_tag_name(self, locator):
+        return self.browser.find_element_by_tag_name(locator)
+
+    def find_by_link_text(self, locator):
+        return self.browser.find_element_by_link_text(locator)
+
+    def find_by_value(self, locator):
+        return self.browser.find_element_by_value(locator)
+
     def find_all(self, locator):
         return self.browser.find_elements_by_css_selector(locator)
 
     def find_by_xpath(self, locator):
         return self.browser.find_element_by_xpath(locator)
-
 
     @staticmethod
     def find_in_element(parent, locator):

@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options
 
 
 def pytest_addoption(parser):
-    parser.addoption('--language', action='store', default="None",
+    parser.addoption('--language', action='store', default='en-gb',
                      help="Choose GUI language for tests")
 
 
@@ -19,11 +19,10 @@ def browser(request):
     print("\nopen browser for test..")
 
     document = webdriver.Chrome(options=options)
+    document.maximize_window()
     document.implicitly_wait(5)
 
     yield document
 
     print("\nquit browser..")
     document.quit()
-
-
