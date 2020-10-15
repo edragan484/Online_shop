@@ -88,8 +88,11 @@ class ProductPageLocators:
     review_button = "a#write_review"
     alert_of_add_product = "div.alert.alert-safe.alert-noicon:nth-child(1)"
     name_in_alert_add_product = "div.alert.alert-safe.alert-noicon:nth-child(1) strong"
+    login_link = "a#login_link"
     logout_link = "a#logout_link"
     basket = "span.btn-group a"
+    basket_in_alert = "View basket"
+    checkout_in_alert = "Checkout now"
 
 
 class Product2PageLocators:
@@ -116,7 +119,7 @@ class BasketPageLocators:
     basket_items = "div.basket-items"
     sum_price = "h3.price_color"
     button_proceed_to_checkout = "a.btn.btn-lg.btn-primary"
-    free_shipping = "tr:nth-child(5) th.total.align-right"
+    free_shipping = "//th[contains(text(),'£0.00')]"
     proceed_to_checkout_button = ".col-sm-4.col-sm-offset-8 a"
     logout_link = "a#logout_link"
 
@@ -207,9 +210,9 @@ class AllProductsPageLocators:
     non_fiction_link = "Non-Fiction"
     programming_link = "Essential programming"
     hacking_link = "Hacking"
-    product_text_link = "Coders at Work"
+    product_text_link = "Reversing"
     product_image_link = "a img[alt='Coders at Work']"
-    add_to_button_item = "//body/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/ol[1]/li[3]/article[1]/div[2]/form[1]/button[1]"
+    add_to_button_item = "//body/div[2]/div[1]/div[1]/div[1]/section[1]/div[1]/ol[1]/li[8]/article[1]/div[2]/form[1]/button[1]"
     logout_link = "a#logout_link"
     basket = ".btn-group a.btn.btn-default"
     account_icon = ".icon-user"

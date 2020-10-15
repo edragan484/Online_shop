@@ -26,7 +26,7 @@ class BasketPage(BasePage):
         assert price_of_item_city == "£16.99"
 
     def verify_shipping_free(self):
-        free_shipping = self.find(BasketPageLocators.free_shipping).text
+        free_shipping = self.find_by_xpath(BasketPageLocators.free_shipping).text
         assert free_shipping == "£0.00"
 
     def press_proceed_to_checkout_button(self):

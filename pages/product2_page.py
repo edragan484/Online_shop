@@ -3,7 +3,7 @@ from .locators import Product2PageLocators
 
 
 class Product2Page(BasePage):
-    product_name = "Coders at Work"
+    product_name = "Reversing"
     page_link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/coders-at-work_207/"
 
     def __init__(self, browser):

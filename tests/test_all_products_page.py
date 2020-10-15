@@ -16,7 +16,7 @@ from pages.shipping_address_page import ShippingAddressPage
 
 @pytest.mark.regress
 class TestAllProductsPageForGuest:
-    product_item1 = "Coders at Work"
+    product_item1 = "Reversing"
     menu_it = "Naviga nel negozio"
     basket_it = "Visualizza carrello"
 
@@ -122,7 +122,7 @@ class TestAllProductsPageForGuest:
 
 @pytest.mark.e2e
 class TestAllProductsPageForGuest2:
-    product_item1 = "Coders at Work"
+    product_item1 = "Reversing"
     menu_it = "Naviga nel negozio"
     basket_it = "Visualizza carrello"
 
@@ -346,7 +346,7 @@ class TestAllProductsPageForGuest2:
 
 @pytest.mark.regress
 class TestAllProductsPageForRegisteredUser:
-    product_item1 = "Coders at Work"
+    product_item1 = "Reversing"
     menu_it = "Naviga nel negozio"
     basket_it = "Visualizza carrello"
 
