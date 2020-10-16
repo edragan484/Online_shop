@@ -6,7 +6,7 @@ from .locators import MainPageLocators
 
 
 class AllProductsPage(BasePage):
-    product_item1 = "Coders at Work"
+    product_item1 = "Google Hacking"
     page_link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/"
 
     def __init__(self, browser):

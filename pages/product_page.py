@@ -4,8 +4,8 @@ from .locators import ProductPageLocators, LoginPageLocators, MainPageLocators
 
 
 class ProductPage(BasePage):
-    product_name = "The City and the Stars"
-    page_link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/the-city-and-the-stars_95/"
+    product_name = "Excession"
+    page_link = "http://selenium1py.pythonanywhere.com/en-gb/catalogue/excession_51/"
 
     def __init__(self, browser):
         BasePage.__init__(self, browser, ProductPage.page_link)

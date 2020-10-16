@@ -20,7 +20,7 @@ from pages.account_profile_edit_page import AccountProfileEditPage
 @pytest.mark.regress
 class TestMainPageForGuest:
     product_name1 = "The City and the Stars"
-    product_name2 = "Reversing"
+    product_name2 = "Google Hacking"
     menu_deutsch = "Im Webshop stöbern"
     basket_deutsch = "Warenkorb anzeigen"
 
@@ -161,7 +161,7 @@ class TestMainPageForGuest:
 @pytest.mark.e2e
 class TestMainPageForGuest2:
     #product_name1 = "The City and the Stars"
-    #product_name2 = "Reversing"
+    #product_name2 = "Hacking Work"
 
     # buy book, from main page, fill all fields in shipping
     def test_buy_product_from_main_page(self, browser):
@@ -484,7 +484,7 @@ class TestMainPageForGuest2:
 @pytest.mark.regress
 class TestMainPageForRegisteredUser:
     product_name1 = "The City and the Stars"
-    product_name2 = "Reversing"
+    product_name2 = "Google Hacking"
     menu_deutsch = "Im Webshop stöbern"
     basket_deutsch = "Warenkorb anzeigen"
 
@@ -622,7 +622,7 @@ class TestMainPageForRegisteredUser:
 
 @pytest.mark.e2e
 class TestMainPageForRegisteredUser2:
-    product_item1 = "Reversing"
+    product_item1 = "Google Hacking"
 
     # buy book, from main page, fill all fields in shipping
     def test_buy_product_from_main_page(self, browser):
