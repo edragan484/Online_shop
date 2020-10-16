@@ -1,0 +1,104 @@
+{
+  "uid" : "2bf97c6eb112b4a5",
+  "name" : "test_go_to_basket_from_alert",
+  "fullName" : "tests.test_product_page.TestProductPageForGuest#test_go_to_basket_from_alert",
+  "historyId" : "4c9d6e64c67d67b5fb9771893d0574ef",
+  "time" : {
+    "start" : 1602809649414,
+    "stop" : 1602809651999,
+    "duration" : 2585
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ {
+    "name" : "browser",
+    "time" : {
+      "start" : 1602809644232,
+      "stop" : 1602809649413,
+      "duration" : 5181
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "be889dfd71bd0661",
+      "name" : "stdout",
+      "source" : "be889dfd71bd0661.txt",
+      "type" : "text/plain",
+      "size" : 41
+    } ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 1,
+    "stepsCount" : 0,
+    "hasContent" : true
+  },
+  "afterStages" : [ {
+    "name" : "browser::0",
+    "time" : {
+      "start" : 1602809652000,
+      "stop" : 1602809654201,
+      "duration" : 2201
+    },
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 0,
+    "stepsCount" : 0,
+    "hasContent" : false
+  } ],
+  "labels" : [ {
+    "name" : "tag",
+    "value" : "regress"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests"
+  }, {
+    "name" : "suite",
+    "value" : "test_product_page"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestProductPageForGuest"
+  }, {
+    "name" : "host",
+    "value" : "DESKTOP-HAAD6VJ"
+  }, {
+    "name" : "thread",
+    "value" : "10928-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.test_product_page"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ "regress" ]
+  },
+  "source" : "2bf97c6eb112b4a5.json",
+  "parameterValues" : [ ]
+}
