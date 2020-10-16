@@ -6,7 +6,7 @@ from pages.product_page import ProductPage
 
 @pytest.mark.regress
 class TestProductPageForGuest:
-    product_name1 = "The City and the Stars"
+    product_name1 = "Excession"
 
     def test_verify_product_name(self, browser):
         page = ProductPage(browser)
@@ -64,7 +64,7 @@ class TestProductPageForGuest:
 
 @pytest.mark.regress
 class TestProductPageForRegisteredUser:
-    product_name1 = "The City and the Stars"
+    product_name1 = "Excession"
 
     def test_verify_product_name(self, browser):
         page = ProductPage(browser)
